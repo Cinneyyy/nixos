@@ -10,7 +10,7 @@
         shellAliases = {
             ll = "ls -la";
             la = "ls -a";
-            nrs = "sudo nixos-rebuild switch";
+            nrs = "sudo nixos-rebuild switch --flake ~/nixos";
             nv = "nvim .";
         };
         initExtra = ''
