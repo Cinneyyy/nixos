@@ -13,5 +13,8 @@
 	nrs = "sudo nixos-rebuild switch";
 	nv = "nvim .";
     };
+    initExtra = ''
+      SUDO_EDITOR=nvim
+    '';
   };
 }

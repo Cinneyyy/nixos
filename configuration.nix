@@ -65,17 +65,17 @@ in
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = false;
+  # services.xserver.enable = false;
 
   # # Enable the KDE Plasma Desktop Environment
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  # services.displayManager.sddm.enable = true;
+  # services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "de";
-    variant = "qwerty";
-  };
+  # services.xserver.xkb = {
+  #   layout = "de";
+  #   variant = "qwerty";
+  # };
 
   # Configure console keymap
   console.keyMap = "de";
@@ -123,8 +123,26 @@ in
     users.colin = ./home.nix;
   };
 
+  # TODO: automatic updates
+  # TODO: flakes
+  # TODO: nvim/hyprland home-manager config
+
+  # GC old generations
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+  nix.settings.auto-optimise-store = true;
+
   programs.firefox.enable = true;
   programs.steam.enable = true;
+
+  # programs.nh = {
+  #   enable = true;
+  #   clean.enable = true;
+  #   clean.extraArgs = "--keep-since 7d --keep 3";
+  # };
 
   programs.hyprland.enable = true;
   # xdg.portal = {
@@ -161,8 +179,7 @@ in
      mako 
      libnotify
      rofi
-     #nautilus
-     #wget
+     hyprlauncher
   ];
 
   nix.settings.experimental-features = "nix-command flakes";
