@@ -10,7 +10,7 @@
             nv = "nvim .";
         };
         initExtra = ''
-            export SUDO_EDITOR=nvim
+            export SUDO_EDITOR=nvi#pcm
         '';
     };
-};
+}

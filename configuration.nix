@@ -1,42 +1,34 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 { config, pkgs, ... }:
+
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    imports = [
+        ./hardware-configuration.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+    # Use the systemd-boot EFI boot loader.
+    boot.loader.systemd-boot.enable = true;
+    boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.extraModprobeConfig = ''
-    options snd_hda_intel power_save=0
-  '';
+    boot.extraModprobeConfig = ''
+        options snd_hda_intel power_save=0
+    '';
 
-  networking.hostName = "nix"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    networking.hostName = "nix"; # Define your hostname.
+    networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
 # UUID=a651ae56-a816-428c-84b7-a3220d923e10 /media/colin/4T-SSD ext4 defaults 0 0
 # UUID=b55a5493-6da9-4abe-823e-3aff9aeb7b1e /media/colin/4T-HDD ext4 defaults 0 0
-  fileSystems."/home/colin/mnt/4T-SSD" = {
-    device = "/dev/disk/by-uuid/a651ae56-a816-428c-84b7-a3220d923e10";
-    fsType = "ext4";
-    options = [
-      "users"
-      "nofail"
-      "exec"
-      "x-gvfs-show"
-      "noatime"
-    ];
-  };
+    fileSystems."/home/colin/mnt/4T-SSD" = {
+        device = "/dev/disk/by-uuid/a651ae56-a816-428c-84b7-a3220d923e10";
+        fsType = "ext4";
+        options = [
+            "users"
+            "nofail"
+            "exec"
+            "x-gvfs-show"
+            "noatime"
+        ];
+    };
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -116,7 +108,25 @@
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "backup";
-    users.colin = ./home/home.nix;
+    users.colin = { ... }: {
+        home = {
+            username = "colin";
+            homeDirectory = "/home/colin";
+            stateVersion = "26.05";
+        };
+        imports = [
+            ./modules/programs/bash.nix        
+            ./modules/programs/nvim.nix
+            ./modules/programs/git.nix
+        ];
+    };
+    # users.root = { ... }: {
+    #     imports = [
+    #         ./modules/programs/bash.nix
+    #         ./modules/programs/nvim.nix
+    #         ./modules/programs/git.nix
+    #     ];
+    # };
   };
 
   # TODO: automatic updates
@@ -124,15 +134,15 @@
   # TODO: nvim/hyprland home-manager config
 
   # GC old generations
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
-  nix.settings.auto-optimise-store = true;
+    nix.gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 7d";
+    };
+    nix.settings.auto-optimise-store = true;
 
-  programs.firefox.enable = true;
-  programs.steam.enable = true;
+    programs.firefox.enable = true;
+    programs.steam.enable = true;
 
   # programs.nh = {
   #   enable = true;
@@ -148,35 +158,35 @@
   #   ];
   # };
 
-  nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [
-     firefox
-     vim
-     fastfetch
-     vlc
-     discord
-     steam
-     bitwarden-desktop
-     signal-desktop
-     whatsapp-electron
-     dotnet-sdk
-     prismlauncher
-     git
-     dvdstyler
-     ffmpeg
-     bat
+    environment.systemPackages = with pkgs; [
+        neovim
+        firefox
+        vim
+        fastfetch
+        vlc
+        discord
+        steam
+        bitwarden-desktop
+        signal-desktop
+        whatsapp-electron
+        dotnet-sdk
+        prismlauncher
+        dvdstyler
+        ffmpeg
+        bat
 
-     # hyprland
-     hyprland
-     kitty
-     hyprpaper
-     waybar
-     mako 
-     libnotify
-     rofi
-     hyprlauncher
-  ];
+        # hyprland
+        hyprland
+        kitty
+        hyprpaper
+        waybar
+        mako 
+        libnotify
+        rofi
+        hyprlauncher
+    ];
 
   nix.settings.experimental-features = "nix-command flakes";
 
