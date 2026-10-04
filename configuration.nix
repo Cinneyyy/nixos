@@ -116,7 +116,7 @@
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "backup";
-    users.colin = ./home.nix;
+    users.colin = ./home/home.nix;
   };
 
   # TODO: automatic updates
@@ -152,7 +152,7 @@
 
   environment.systemPackages = with pkgs; [
      firefox
-     neovim
+     vim
      fastfetch
      vlc
      discord

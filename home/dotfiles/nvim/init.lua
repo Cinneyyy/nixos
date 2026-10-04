@@ -23,3 +23,5 @@ vim.o.relativenumber = false
 vim.o.mouse = 'a'
 
 vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
+
+-- waow (testtesttest)

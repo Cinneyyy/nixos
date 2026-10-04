@@ -1,14 +1,10 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
-    home.username = "colin";
-    home.homeDirectory = "/home/colin";
-    home.stateVersion = "26.05";
-
     programs.bash = {
         enable = true;
         shellAliases = {
-            ll = "ls -la";
+            ll = "ls -lah";
             la = "ls -a";
             nrs = "sudo nixos-rebuild switch --flake ~/nixos";
             nv = "nvim .";
@@ -17,4 +13,4 @@
             export SUDO_EDITOR=nvim
         '';
     };
-}
+};
