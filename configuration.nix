@@ -108,18 +108,7 @@
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "backup";
-    users.colin = { ... }: {
-        home = {
-            username = "colin";
-            homeDirectory = "/home/colin";
-            stateVersion = "26.05";
-        };
-        imports = [
-            ./modules/programs/bash.nix        
-            ./modules/programs/nvim.nix
-            ./modules/programs/git.nix
-        ];
-    };
+    users.colin = import ./home.nix;
     # users.root = { ... }: {
     #     imports = [
     #         ./modules/programs/bash.nix
@@ -155,6 +144,11 @@
         withUWSM = true;
     };
     environment.sessionVariables.NIXOS_OZONE_WL = "1"; # Hint Electron apps to use Wayland.
+
+    programs.neovim = {
+        enable = true;
+        defaultEditor = true;
+    };
 
     services.greetd = {
         enable = true;
@@ -198,9 +192,9 @@
         dvdstyler
         ffmpeg
         bat
+        kdePackages.dolphin
 
         # hyprland
-        hyprland
         kitty
         hyprpaper
         waybar
