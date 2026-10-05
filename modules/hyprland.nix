@@ -10,6 +10,9 @@
         mako 
         libnotify
         quickshell
+        grim
+        slurp
+        wl-clipboard
     ];
 
     programs.hyprland = {

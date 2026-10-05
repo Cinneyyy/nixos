@@ -50,13 +50,16 @@ hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd("rofi -show window"))
 hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("hyprctl reload"))
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("pkill waybar && waybar"))
 
+-- Screenhot.
+hl.bind(mainMod .. "+ S", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
+
 -- OS shortcuts.
 hl.bind(mainMod .. " + F4", hl.dsp.window.close())
 hl.bind(mainMod .. " + F11", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + DELETE", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
 -- Window operations.
-hl.bind(mainMod .. " + S", hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(mainMod .. " + D", hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + Q", hl.dsp.window.pseudo())
 
