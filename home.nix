@@ -19,6 +19,7 @@
             cloc
             gnome-system-monitor
             diskus
+            qbittorrent
 
             # # ns; doesnt work for some reason (i am no good at the nix language)
             # pkgs.writeShellApplication {

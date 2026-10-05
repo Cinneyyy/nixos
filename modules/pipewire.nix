@@ -21,4 +21,14 @@
 
         jack.enable = false;
     };
+
+    systemd.user.services.mic-fix = {
+        description = "A script that changes some pipewire settings that fuck up my mic.";
+        serviceConfig.PassEnvironment = "DISPLAY";
+        script = ''
+            pw-metadata -n settings 0 clock.force-quantum 1024
+            pw-metadata -n settings 0 clock.force-rate 48000
+        '';
+        wantedBy = [ "multi-user.target" ]; # Starts after login.
+    };
 }

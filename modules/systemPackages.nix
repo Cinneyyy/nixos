@@ -9,6 +9,7 @@
         firefox
         bat
         kitty
+        proton-vpn-cli
     ];
 
     programs.firefox.enable = true;
