@@ -56,17 +56,17 @@
   # services.xserver.enable = false;
 
   # Enable the KDE Plasma Desktop Environment
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  # services.displayManager.sddm.enable = true;
+  # services.desktopManager.plasma6.enable = true;
 
-  # Configure keymap in X11
-  # services.xserver.xkb = {
-  #   layout = "de";
-  #   variant = "qwerty";
-  # };
+    #Configure keymap in X11
+    services.xserver.xkb = {
+        layout = "de";
+        variant = "qwerty";
+    };
 
   # Configure console keymap
-  console.keyMap = "de";
+    console.keyMap = "de";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -150,7 +150,30 @@
   #   clean.extraArgs = "--keep-since 7d --keep 3";
   # };
 
-  programs.hyprland.enable = true;
+    programs.hyprland = {
+        enable = true;
+        withUWSM = true;
+    };
+    environment.sessionVariables.NIXOS_OZONE_WL = "1"; # Hint Electron apps to use Wayland.
+
+    services.greetd = {
+        enable = true;
+        settings = {
+            default_session = {
+                command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd 'uwsm start hyprland-uwsm.desktop'";
+                user = "greeter";
+            };
+        };
+    };
+
+    # xdg.portal = {
+    #     enable = true;
+    #     extraPortals = with pkgs; [
+    #         xdg-desktop-portal-hyprland
+    #         xdg-desktop-portal-gtk
+    #     ];
+    # };
+
   # xdg.portal = {
   #   enable = true;
   #   extraPortals = [
@@ -163,7 +186,6 @@
     environment.systemPackages = with pkgs; [
         neovim
         firefox
-        vim
         fastfetch
         vlc
         discord
