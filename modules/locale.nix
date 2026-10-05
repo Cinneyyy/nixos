@@ -18,9 +18,19 @@
 
     console.keyMap = "de";
 
-    # X11 only
-    services.xserver.xkb = {
-        layout = "de";
-        variant = "qwerty";
+    services.keyd = {
+        enable = true;
+        keyboards.default = {
+            ids = [
+                "*"
+            ];
+            settings.main = {
+                # z = "y";
+                # y = "z";
+                capslock = "esc";
+                kpslash = "volumedown";
+                kpasterisk = "volumeup";
+            };
+        };
     };
 }

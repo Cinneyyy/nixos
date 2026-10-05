@@ -11,6 +11,7 @@
         ./modules/hyprland.nix
         ./modules/systemPackages.nix
         ./modules/autoCleanup.nix # Manages automatic system upgrades and garbage collection.
+        ./modules/fonts.nix
     ];
 
     boot = {

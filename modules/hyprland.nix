@@ -9,6 +9,7 @@
         rofi
         mako 
         libnotify
+        quickshell
     ];
 
     programs.hyprland = {
