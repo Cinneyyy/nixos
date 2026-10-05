@@ -1,3 +1,4 @@
+
 hl.config({
     general = {
         gaps_in  = 5,
@@ -18,8 +19,8 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 0,
-        rounding_power = 0,
+        rounding       = 4,
+        rounding_power = 1.0,
 
         active_opacity   = 1.0,
         inactive_opacity = 1.0,

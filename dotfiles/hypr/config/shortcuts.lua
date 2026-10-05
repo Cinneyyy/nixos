@@ -26,14 +26,11 @@ local function focus(program, class)
 end
 
 local programShortcuts = {
-    -- { "1", "nautilus", },
-    { "2", "firefox", "firefox-esr", },
+    { "1", "dolphin", "org.kde.dolphin", },
+    { "2", "firefox", },
     { "3", "discord", },
     { "4", "kitty", },
-    -- { "5", "gnome-terminal", "org.gnome.Terminal", },
-    { "6", "bitwarden", "Bitwarden", },
-    { "7", "steam", },
-    -- { "8", "signal-desktop --password-store='gnome-libsecret'", "signal", },
+    { "5", "steam", },
 }
 
 for _, sh in ipairs(programShortcuts) do

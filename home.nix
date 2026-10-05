@@ -16,6 +16,9 @@
             prismlauncher
             dvdstyler
             ffmpeg
+            cloc
+            gnome-system-monitor
+            diskus
 
             # # ns; doesnt work for some reason (i am no good at the nix language)
             # pkgs.writeShellApplication {
@@ -30,6 +33,32 @@
     };
 
     ### Modularize these later
+
+    home.pointerCursor = {
+        gtk.enable = true;
+        package = pkgs.adwaita-icon-theme;
+        name = "Adwaita";
+        size = 16;
+    };
+
+    gtk = {
+        enable = true;
+
+        theme = {
+            package = pkgs.flat-remix-gtk;
+            name = "Flat-Remix-GTK-Violet-Dark";
+        };
+
+        iconTheme = {
+            package = pkgs.adwaita-icon-theme;
+            name = "Adwaita";
+        };
+
+        # font = {
+        #     name = "Sans";
+        #     size = "11";
+        # };
+    };
 
     programs.bash = {
         enable = true;
@@ -56,4 +85,5 @@
     };
 
     home.file.".config/hypr".source = ./dotfiles/hypr;
+    home.file.".config/nvim".source = ./dotfiles/nvim;
 }
