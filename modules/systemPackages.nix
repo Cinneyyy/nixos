@@ -17,4 +17,9 @@
         enable = true;
         defaultEditor = true;
     };
+
+    # Cannot be installed via home.packages
+    programs.steam.enable = true;
+    programs.gamemode.enable = true;
+
 }

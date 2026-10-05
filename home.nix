@@ -9,7 +9,6 @@
             fastfetch
             vlc
             discord
-            steam
             bitwarden-desktop
             signal-desktop
             whatsapp-electron
@@ -31,8 +30,6 @@
     };
 
     ### Modularize these later
-
-    programs.steam.enable = true;
 
     programs.bash = {
         enable = true;

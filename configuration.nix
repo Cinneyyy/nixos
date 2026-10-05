@@ -22,7 +22,7 @@
 
     networking = {
         hostName = "nix";
-        wireless.enable = true,
+        wireless.enable = true;
         networkmanager.enable = true;
     };
 
