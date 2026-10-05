@@ -20,6 +20,8 @@
             gnome-system-monitor
             diskus
             qbittorrent
+            zip
+            unzip
 
             # # ns; doesnt work for some reason (i am no good at the nix language)
             # pkgs.writeShellApplication {
@@ -87,4 +89,5 @@
 
     home.file.".config/hypr".source = ./dotfiles/hypr;
     home.file.".config/nvim".source = ./dotfiles/nvim;
+    home.file.".ssh/config".source = ./dotfiles/.ssh/config;
 }
