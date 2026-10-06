@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
     home = {
@@ -22,6 +22,7 @@
             qbittorrent
             zip
             unzip
+            audacity
 
             # # ns; doesnt work for some reason (i am no good at the nix language)
             # pkgs.writeShellApplication {

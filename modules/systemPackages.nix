@@ -10,6 +10,7 @@
         bat
         kitty
         proton-vpn-cli
+        alsa-utils
     ];
 
     programs.firefox.enable = true;
@@ -22,5 +23,4 @@
     # Cannot be installed via home.packages
     programs.steam.enable = true;
     programs.gamemode.enable = true;
-
 }

@@ -5,6 +5,7 @@
         kitty
         hyprpaper
         hyprlauncher
+        hyprpolkitagent
         waybar
         rofi
         mako 
