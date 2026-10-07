@@ -84,8 +84,8 @@ hl.bind(mainMod .. " + SHIFT + UP", hl.dsp.window.move({ direction = "up" }))
 hl.bind(mainMod .. " + SHIFT + DOWN", hl.dsp.window.move({ direction = "down" }))
 
 -- Move / resize windows with lmb/rmb.
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true, })
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true, })
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
@@ -103,11 +103,10 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 -- hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 -- hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 
-
 -- Lower/raise/mute volume.
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"), { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"),      { locked = true, repeating = true })
-hl.bind(mainMod .. " + XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+"),      { locked = true, repeating = true })
+hl.bind(mainMod .. " + XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 1%+"),      { locked = true, repeating = true })
 hl.bind(mainMod .. " + XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-"),      { locked = true, repeating = true })
 
 local muteSpeaker = hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
@@ -125,3 +124,19 @@ hl.bind(mainMod .. "+ XF86AudioMute", muteMic, { locked = true, repeating = fals
 -- hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 -- hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 -- hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
+
+-- Quickshell
+-- hl.bind(mainMod .. " + SUPER_L", hl.dsp.global("quickshell:statusBarMeta"))
+hl.bind(mainMod .. " + adiaeresis", hl.dsp.exec_cmd("notify-send 'hate' 'let me tell you how much ive come to hate you since i began to live.'"))
+
+-- Discord
+hl.bind("CTRL + F9", hl.dsp.send_shortcut({
+    mods = "CTRL + SHIFT",
+    key = "M",
+    window = "class:^discord$",
+}))
+hl.bind("CTRL + F10", hl.dsp.send_shortcut({
+    mods = "CTRL + SHIFT",
+    key = "D",
+    window = "class:^discord$",
+}))

@@ -3,9 +3,11 @@ vim.keymap.set("n", "<C-k>", ":m .-2<CR>==")
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set('n', '-', vim.cmd.Ex)
-vim.keymap.set("n", "<C-t>", ":term<CR>", { remap = true })
+vim.keymap.set("n", "-", vim.cmd.Ex)
+vim.keymap.set("n", "<C-t>", ":term<CR>", { remap = true, })
 vim.keymap.set("n", "ci2", "ci\"")
+
+vim.keymap.set("n", "<C-e>", ":co.<CR>", { remap = true, })
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "*",

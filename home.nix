@@ -13,6 +13,7 @@
             ffmpeg
             cloc
             diskus
+            wev
 
             # Chat
             discord
@@ -36,20 +37,10 @@
             # dotnetCorePackages.sdk_8_0
             # dotnetCorePackages.sdk_9_0
             dotnetCorePackages.sdk_10_0
-
-            # # ns; doesnt work for some reason (i am no good at the nix language)
-            # pkgs.writeShellApplication {
-            #     name = "ns";
-            #     runtimeInputs = with pkgs; [
-            #         fzf
-            #         nix-search-tv
-            #     ];
-            #     text = builtins.readFile "${pkgs.nix-search-tv.src}/nixpkgs.sh";
-            # }
         ];
     };
 
-    ### Modularize these later
+    # TODO: Modularize these
 
     home.pointerCursor = {
         gtk.enable = true;
@@ -105,6 +96,4 @@
     home.file.".config/hypr".source = ./dotfiles/hypr;
     home.file.".config/nvim".source = ./dotfiles/nvim;
     home.file.".ssh/config".source = ./dotfiles/.ssh/config;
-
-    # programs.nix-ld.enable = true;
 }
