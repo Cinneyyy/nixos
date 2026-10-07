@@ -17,4 +17,6 @@
             "noatime"
         ];
     };
+
+    services.gvfs.enable = true;
 }

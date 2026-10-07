@@ -6,14 +6,14 @@
         hyprpaper
         hyprlauncher
         hyprpolkitagent
-        waybar
         rofi
-        mako 
         libnotify
         quickshell
         grim
         slurp
         wl-clipboard
+        # mako 
+        # waybar
     ];
 
     programs.hyprland = {

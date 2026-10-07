@@ -107,15 +107,18 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 -- Lower/raise/mute volume.
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"), { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"),      { locked = true, repeating = true })
+hl.bind(mainMod .. " + XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+"),      { locked = true, repeating = true })
+hl.bind(mainMod .. " + XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-"),      { locked = true, repeating = true })
 
 local muteSpeaker = hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
-hl.bind("XF86AudioMute", muteSpeaker, { locked = true, repeating = true })
-hl.bind(mainMod .. " + F10", muteSpeaker, { locked = true, repeating = true })
+hl.bind("XF86AudioMute", muteSpeaker, { locked = true, repeating = false })
+-- hl.bind(mainMod .. " + F10", muteSpeaker, { locked = true, repeating = false })
 
 -- Mute microphone.
 local muteMic = hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle")
-hl.bind("XF86AudioMicMute", muteMic, { locked = true, repeating = true })
-hl.bind(mainMod .. " + F9", muteMic, { locked = true, repeating = true })
+hl.bind("XF86AudioMicMute", muteMic, { locked = true, repeating = false })
+hl.bind(mainMod .. "+ XF86AudioMute", muteMic, { locked = true, repeating = false })
+-- hl.bind(mainMod .. " + F9", muteMic, { locked = true, repeating = false })
 
 -- Requires playerctl
 -- hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })

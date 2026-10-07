@@ -6,23 +6,36 @@
         homeDirectory = "/home/colin";
         stateVersion = "26.05";
         packages = with pkgs; [
+            # CLI utils
             fastfetch
-            vlc
-            discord
-            bitwarden-desktop
-            signal-desktop
-            whatsapp-electron
-            dotnet-sdk
-            prismlauncher
-            dvdstyler
-            ffmpeg
-            cloc
-            gnome-system-monitor
-            diskus
-            qbittorrent
             zip
             unzip
+            ffmpeg
+            cloc
+            diskus
+
+            # Chat
+            discord
+            signal-desktop
+            whatsapp-electron
+
+            # GUI Utils
+            vlc
+            bitwarden-desktop
             audacity
+            dvdstyler
+            gnome-system-monitor
+            qbittorrent
+            nautilus
+            pcmanfm
+
+            # Games
+            prismlauncher
+
+            # Dev
+            # dotnetCorePackages.sdk_8_0
+            # dotnetCorePackages.sdk_9_0
+            dotnetCorePackages.sdk_10_0
 
             # # ns; doesnt work for some reason (i am no good at the nix language)
             # pkgs.writeShellApplication {
@@ -88,7 +101,10 @@
         };
     };
 
+
     home.file.".config/hypr".source = ./dotfiles/hypr;
     home.file.".config/nvim".source = ./dotfiles/nvim;
     home.file.".ssh/config".source = ./dotfiles/.ssh/config;
+
+    # programs.nix-ld.enable = true;
 }
