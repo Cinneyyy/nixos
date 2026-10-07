@@ -30,6 +30,7 @@
                 capslock = "esc";
                 kpslash = "volumedown";
                 kpasterisk = "volumeup";
+                kpminus = "mute";
             };
         };
     };
