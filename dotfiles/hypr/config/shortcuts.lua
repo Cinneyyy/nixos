@@ -44,11 +44,12 @@ for _, sh in ipairs(programShortcuts) do
     hl.bind(mainMod .. " + " .. sh[1], function() focus(sh[2], class) end)
 end
 
+-- Hyprlauncher
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("hyprlauncher"))
-hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd("rofi -show window"))
 
+-- Reload keybinds
 hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("hyprctl reload"))
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("pkill waybar && waybar"))
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("pkill quickshell; qs"))
 
 -- Screenhot.
 hl.bind(mainMod .. "+ S", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
