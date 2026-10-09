@@ -60,9 +60,9 @@ hl.bind(mainMod .. " + F11", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + DELETE", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
 -- Window operations.
+-- hl.bind(mainMod .. " + Q", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + D", hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + Q", hl.dsp.window.pseudo())
 
 -- Move focus with arrow keys.
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))

@@ -9,6 +9,7 @@
         kitty
         firefox
         proton-vpn-cli
+        steam
     ];
 
     programs.firefox.enable = true;
