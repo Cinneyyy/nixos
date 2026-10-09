@@ -4,7 +4,7 @@
     nixpkgs.config.allowUnfree = true;
 
     environment.systemPackages = with pkgs; [
-        nvim
+        neovim
         vim
         kitty
         firefox

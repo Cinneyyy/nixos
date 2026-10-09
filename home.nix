@@ -19,6 +19,7 @@
             bat
             file
             alsa-utils
+            keyd
 
             # Chat
             discord
