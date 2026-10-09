@@ -2,8 +2,6 @@
 
 {
     imports = [
-        ./hardware-configuration.nix
-
         ./modules/fileSystems.nix
         ./modules/locale.nix
         ./modules/pipewire.nix

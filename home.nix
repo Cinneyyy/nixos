@@ -14,6 +14,11 @@
             cloc
             diskus
             wev
+            curl
+            tree
+            bat
+            file
+            alsa-utils
 
             # Chat
             discord
@@ -29,14 +34,17 @@
             qbittorrent
             nautilus
             pcmanfm
+            photoqt
+            ausweisapp
 
             # Games
             prismlauncher
 
             # Dev
-            # dotnetCorePackages.sdk_8_0
-            # dotnetCorePackages.sdk_9_0
+            python3
             dotnetCorePackages.sdk_10_0
+            gcc
+            cmake
         ];
     };
 
@@ -61,11 +69,6 @@
             package = pkgs.adwaita-icon-theme;
             name = "Adwaita";
         };
-
-        # font = {
-        #     name = "Sans";
-        #     size = "11";
-        # };
     };
 
     programs.bash = {
@@ -73,8 +76,8 @@
         shellAliases = {
             ll = "ls -lah";
             la = "ls -a";
-            nrs = "sudo nixos-rebuild switch --flake ~/nixos";
             nv = "nvim .";
+            cat = "bat";
         };
         initExtra = ''
             export SUDO_EDITOR=nvim
@@ -91,7 +94,6 @@
             init.defaultBranch = "main";
         };
     };
-
 
     home.file.".config/hypr".source = ./dotfiles/hypr;
     home.file.".config/nvim".source = ./dotfiles/nvim;

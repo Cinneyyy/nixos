@@ -6,11 +6,13 @@
         hyprpaper
         hyprlauncher
         hyprpolkitagent
+        hyprlock
         libnotify
         quickshell
         grim
         slurp
         wl-clipboard
+        playerctl
     ];
 
     programs.hyprland = {

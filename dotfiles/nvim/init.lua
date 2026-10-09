@@ -9,6 +9,8 @@ vim.keymap.set("n", "ci2", "ci\"")
 
 vim.keymap.set("n", "<C-e>", ":co.<CR>", { remap = true, })
 
+vim.keymap.set("n", "<C-q>", ".", { remap = true, })
+
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "*",
     callback = function()

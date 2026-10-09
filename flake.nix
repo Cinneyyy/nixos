@@ -11,12 +11,25 @@
     };
 
     outputs = { self, nixpkgs, home-manager, ... }: {
-        nixosConfigurations.nix = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            modules = [
-                home-manager.nixosModules.home-manager
-                ./configuration.nix
-            ];
+        nixosConfigurations = {
+            pc = nixpkgs.lib.nixosSystem {
+                system = "x86_64-linux";
+                modules = [
+                    ./hosts/pc
+                    home-manager.nixosModules.home-manager {
+                        home-manager.users.colin = import ./hosts/pc/home.nix;
+                    }
+                ];
+            };
+            laptop = nixpkgs.lib.nixosSystem {
+                system = "x86_64-linux";
+                modules = [
+                    ./hosts/laptop
+                    home-manager.nixosModules.home-manager {
+                        home-manager.users.colin = import ./hosts/laptop/home.nix;
+                    }
+                ];
+            };
         };
     };
 }
