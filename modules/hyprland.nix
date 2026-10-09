@@ -23,6 +23,9 @@
     # Hint Electron apps to use Wayland.
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+    security.pam.services.login.enableGnomeKeyring = true;
+    security.pam.services.greetd.enableGnomeKeyring = true;
+
     services.greetd = {
         enable = true;
         settings = {

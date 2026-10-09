@@ -20,6 +20,7 @@
             file
             alsa-utils
             keyd
+            gcr
 
             # Chat
             discord
@@ -66,11 +67,27 @@
             name = "Flat-Remix-GTK-Violet-Dark";
         };
 
+        colorScheme = "dark";
+        theme = {
+            
+        };
+
         iconTheme = {
             package = pkgs.adwaita-icon-theme;
             name = "Adwaita";
         };
     };
+
+    dconf = {
+        enable = true;
+        settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+    };
+
+    # qt = {
+    #     enable = true;
+    #     platformTheme.name = "qtct";
+    #     style.name = "kvantum";
+    # };
 
     programs.bash = {
         enable = true;
@@ -85,6 +102,8 @@
         '';
     };
 
+    services.gnome-keyring.enable = true;
+
     programs.git = {
         enable = true;
         package = pkgs.git.override {
@@ -95,9 +114,10 @@
                 email = "cinneyyy@proton.me";
                 name = "Cinneyyy";
             };
+            credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
             init.defaultBranch = "main";
-            credential.helper = "libsecret";
             push.autoSetupRemote = true;
+            pull.rebase = false;
         };
     };
 
