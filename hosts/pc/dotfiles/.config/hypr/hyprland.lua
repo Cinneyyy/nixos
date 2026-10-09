@@ -1,6 +1,6 @@
 hl.monitor({
     output = "DP-3",
-    mode = "1920x1080@144",
+    mode = "1920x1080@60",
     position = "0x0",
     scale = 1,
 })
