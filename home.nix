@@ -87,16 +87,26 @@
 
     programs.git = {
         enable = true;
+        package = pkgs.git.override {
+            withLibsecret = true;
+        };
         settings = {
             user = {
                 email = "cinneyyy@proton.me";
                 name = "Cinneyyy";
             };
             init.defaultBranch = "main";
+            credential.helper = "libsecret";
+            push.autoSetupRemote = true;
         };
     };
 
-    home.file.".config/hypr".source = ./dotfiles/hypr;
-    home.file.".config/nvim".source = ./dotfiles/nvim;
+    home.file.".config/nvim".source = ./dotfiles/.config/nvim;
+
     home.file.".ssh/config".source = ./dotfiles/.ssh/config;
+
+    home.file.".config/hypr/hyprpaper.conf".source = ./dotfiles/.config/hypr/hyprpaper.conf;
+    home.file.".config/hypr/hyprlock.conf".source = ./dotfiles/.config/hypr/hyprlock.conf;
+    home.file.".config/hypr/wallpapers".source = ./dotfiles/.config/hypr/wallpapers;
+    home.file.".config/hypr/hyprland".source = ./dotfiles/.config/hypr/hyprland;
 }

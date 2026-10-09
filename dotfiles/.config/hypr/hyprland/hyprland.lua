@@ -1,19 +1,8 @@
--- Stop lua from complaining everywhere hl is used.
-local hl = hl
-
--- See https://wiki.hypr.land/Configuring/Basics/Monitors/
-hl.monitor({
-    output   = "",
-    mode     = "preferred",
-    position = "auto",
-    scale    = "auto",
-})
-
-require("config/startup")
-require("config/window_style")
-require("config/animations")
-require("config/input")
-require("config/shortcuts")
+require("hyprland/config/startup")
+require("hyprland/config/window_style")
+require("hyprland/config/animations")
+require("hyprland/config/input")
+require("hyprland/config/shortcuts")
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
