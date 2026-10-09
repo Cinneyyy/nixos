@@ -7,7 +7,6 @@
         stateVersion = "26.05";
         packages = with pkgs; [
             # CLI utils
-            nvim
             fastfetch
             zip
             unzip
@@ -27,7 +26,6 @@
             whatsapp-electron
 
             # GUI Utils
-            firefox
             vlc
             bitwarden-desktop
             audacity
@@ -71,11 +69,6 @@
             package = pkgs.adwaita-icon-theme;
             name = "Adwaita";
         };
-
-        # font = {
-        #     name = "Sans";
-        #     size = "11";
-        # };
     };
 
     programs.bash = {

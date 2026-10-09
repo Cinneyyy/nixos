@@ -4,8 +4,10 @@
     nixpkgs.config.allowUnfree = true;
 
     environment.systemPackages = with pkgs; [
+        nvim
         vim
         kitty
+        firefox
         proton-vpn-cli
     ];
 
