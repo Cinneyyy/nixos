@@ -13,11 +13,23 @@ end
 -- 4: misc
 
 hl.window_rule({
-    match = { class = "discord|steam", },
+    match = {
+        class = ".*(discord|steam).*",
+    },
     workspace = 2,
 })
 
 hl.window_rule({
-    match = { class = "bitwarden|whatsapp*|signal*", },
-    workspace = 3
+    match = {
+        class = ".*(bitwarden|whatsapp|signal).*",
+    },
+    workspace = 3,
+})
+
+hl.window_rule({
+    match = {
+        title = "Steam Settings",
+    },
+    workspace = 2,
+    float = true,
 })

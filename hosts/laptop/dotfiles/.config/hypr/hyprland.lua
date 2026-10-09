@@ -1,10 +1,16 @@
-local monitorScale = 1.2
+local monitorScale = 1.25
 
 hl.monitor({
     output = "eDP-1",
     mode = "1920x1080@60",
     position = "0x0",
     scale = monitorScale,
+})
+
+hl.config({
+    xwayland = {
+        force_zero_scaling = true,
+    },
 })
 
 require("hyprland/hyprland")
