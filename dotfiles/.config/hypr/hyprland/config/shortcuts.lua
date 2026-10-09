@@ -11,7 +11,7 @@ local function focus(program, class)
     end
 
     if #windows == 1 then
-        hl.dispatch(hl.dsp.focus({ window =  windows[1] }))
+        hl.dispatch(hl.dsp.focus({ window = windows[1] }))
         return
     end
 
@@ -26,7 +26,7 @@ local function focus(program, class)
 end
 
 local programShortcuts = {
-    { "1", "dolphin", "org.kde.dolphin", },
+    { "1", "nautilus", "org.gnome.Nautilus", },
     { "2", "firefox", },
     { "3", "discord", },
     { "4", "kitty", },
@@ -34,7 +34,7 @@ local programShortcuts = {
 }
 
 for _, sh in ipairs(programShortcuts) do
-    hl.bind(mainMod .. " + ALT + " .. sh[1], hl.dsp.exec_cmd(sh[2]))
+    hl.bind(mainMod .. " + CTRL + " .. sh[1], hl.dsp.exec_cmd(sh[2]))
 
     local class = sh[2]
     if #sh == 3 then
@@ -88,22 +88,6 @@ hl.bind(mainMod .. " + SHIFT + DOWN", hl.dsp.window.move({ direction = "down" })
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true, })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true, })
 
--- Switch workspaces with mainMod + [0-9]
--- Move active window to a workspace with mainMod + SHIFT + [0-9]
--- for i = 1, 10 do
---     local key = i % 10 -- 10 maps to key 0
---     hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i}))
---     hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
--- end
-
--- Example special workspace (scratchpad)
--- hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
--- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
-
--- Scroll through existing workspaces with mainMod + scroll
--- hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
--- hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
-
 -- Lower/raise/mute volume.
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"), { locked = true, repeating = true, })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"), { locked = true, repeating = true, })
@@ -154,3 +138,19 @@ hl.bind("CTRL + F10", hl.dsp.send_shortcut({
     key = "D",
     window = "class:^discord$",
 }))
+
+-- Workspaces
+for i = 1, 4 do
+    hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.focus({ workspace = i, }))
+    hl.bind("ALT + SHIFT + " .. i, hl.dsp.window.move({ workspace = i, }))
+end
+
+hl.bind(mainMod .. " + N", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + M", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+
+hl.bind(mainMod .. " + SHIFT + N", hl.dsp.window.move({ workspace = "e-1" }))
+hl.bind(mainMod .. " + SHIFT + M", hl.dsp.window.move({ workspace = "e+1" }))
+hl.bind(mainMod .. " + SHIFT + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + SHIFT + mouse_down", hl.dsp.focus({ workspace = "e+1" }))

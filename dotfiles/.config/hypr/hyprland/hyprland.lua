@@ -3,6 +3,14 @@ require("hyprland/config/window_style")
 require("hyprland/config/animations")
 require("hyprland/config/input")
 require("hyprland/config/shortcuts")
+require("hyprland/config/workspaces")
+
+hl.monitor({
+    output = "",
+    mode = "preferred",
+    position = "auto",
+    scale = 1,
+})
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
