@@ -7,6 +7,6 @@
     ];
 
     services.keyd.keyboards.default.settings.main = {
-        print = "102nd";
+        print = "102nd"; // PrtScn to "<"
     };
 }
