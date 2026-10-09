@@ -4,15 +4,9 @@
     nixpkgs.config.allowUnfree = true;
 
     environment.systemPackages = with pkgs; [
-        neovim
         vim
-        kdePackages.dolphin
-        firefox
-        bat
         kitty
         proton-vpn-cli
-        alsa-utils
-        file
     ];
 
     programs.firefox.enable = true;

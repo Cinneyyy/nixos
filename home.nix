@@ -7,6 +7,7 @@
         stateVersion = "26.05";
         packages = with pkgs; [
             # CLI utils
+            nvim
             fastfetch
             zip
             unzip
@@ -16,7 +17,9 @@
             wev
             curl
             tree
-            brightnessctl
+            bat
+            file
+            alsa-utils
 
             # Chat
             discord
@@ -24,6 +27,7 @@
             whatsapp-electron
 
             # GUI Utils
+            firefox
             vlc
             bitwarden-desktop
             audacity
@@ -34,16 +38,15 @@
             pcmanfm
             photoqt
             ausweisapp
-            kdePackages.gwenview
 
             # Games
             prismlauncher
 
             # Dev
             python3
-            # dotnetCorePackages.sdk_8_0
-            # dotnetCorePackages.sdk_9_0
             dotnetCorePackages.sdk_10_0
+            gcc
+            cmake
         ];
     };
 
