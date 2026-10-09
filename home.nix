@@ -14,6 +14,9 @@
             cloc
             diskus
             wev
+            curl
+            tree
+            brightnessctl
 
             # Chat
             discord
@@ -29,11 +32,15 @@
             qbittorrent
             nautilus
             pcmanfm
+            photoqt
+            ausweisapp
+            kdePackages.gwenview
 
             # Games
             prismlauncher
 
             # Dev
+            python3
             # dotnetCorePackages.sdk_8_0
             # dotnetCorePackages.sdk_9_0
             dotnetCorePackages.sdk_10_0
@@ -73,8 +80,8 @@
         shellAliases = {
             ll = "ls -lah";
             la = "ls -a";
-            nrs = "sudo nixos-rebuild switch --flake ~/nixos";
             nv = "nvim .";
+            cat = "bat";
         };
         initExtra = ''
             export SUDO_EDITOR=nvim
@@ -91,7 +98,6 @@
             init.defaultBranch = "main";
         };
     };
-
 
     home.file.".config/hypr".source = ./dotfiles/hypr;
     home.file.".config/nvim".source = ./dotfiles/nvim;

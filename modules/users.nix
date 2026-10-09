@@ -11,6 +11,5 @@
         useUserPackages = true;
         useGlobalPkgs = true;
         backupFileExtension = "backup";
-        users.colin = import ./../home.nix;
     };
 }

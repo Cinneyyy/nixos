@@ -25,12 +25,22 @@
                 "*"
             ];
             settings.main = {
-                # z = "y";
-                # y = "z";
+                z = "y";
+                y = "z";
+
                 capslock = "esc";
-                kpslash = "volumedown";
-                kpasterisk = "volumeup";
-                kpminus = "mute";
+
+                # Volume controls
+                kpslash = "volumedown"; # volume+
+                kpasterisk = "volumeup"; # volume-
+                kpminus = "mute"; # mute
+                kpplus = "leftmeta"; # microphone
+                kp7 = "leftshift"; # 10x
+
+                # Media controls
+                kp1 = "play";
+                kp2 = "previoussong";
+                kp3 = "nextsong";
             };
         };
     };
