@@ -3,10 +3,9 @@
 {
     environment.systemPackages = with pkgs; [
         kitty
-        hyprpaper
         hyprlauncher
-        hyprpolkitagent
         hyprlock
+        hyprpolkitagent
         libnotify
         quickshell
         grim

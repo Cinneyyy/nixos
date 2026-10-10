@@ -101,6 +101,7 @@
             la = "ls -a";
             nv = "nvim .";
             cat = "bat";
+            clocl = "cloc .";
         };
         initExtra = ''
             export SUDO_EDITOR=nvim
