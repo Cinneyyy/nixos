@@ -11,7 +11,6 @@ vim.keymap.set("n", "<C-e>", ":co.<CR>", { remap = true, })
 vim.keymap.set("n", "<C-q>", ".", { remap = true, })
 
 vim.keymap.set("n", "-", vim.cmd.Ex)
-vim.keymap.set("n", "<C-a>", vim.cmd.Ex, { remap = true, })
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "*",

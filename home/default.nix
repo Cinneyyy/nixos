@@ -1,6 +1,10 @@
 { pkgs, inputs, ... }:
 
 {
+    imports = [
+        ./hyprland.nix
+    ];
+
     home = {
         username = "colin";
         homeDirectory = "/home/colin";
@@ -21,6 +25,7 @@
             alsa-utils
             keyd
             gcr
+            imagemagick
 
             # Chat
             discord
@@ -122,11 +127,5 @@
     };
 
     home.file.".config/nvim".source = ./dotfiles/.config/nvim;
-
     home.file.".ssh/config".source = ./dotfiles/.ssh/config;
-
-    home.file.".config/hypr/hyprpaper.conf".source = ./dotfiles/.config/hypr/hyprpaper.conf;
-    home.file.".config/hypr/hyprlock.conf".source = ./dotfiles/.config/hypr/hyprlock.conf;
-    home.file.".config/hypr/wallpapers".source = ./dotfiles/.config/hypr/wallpapers;
-    home.file.".config/hypr/hyprland".source = ./dotfiles/.config/hypr/hyprland;
 }
