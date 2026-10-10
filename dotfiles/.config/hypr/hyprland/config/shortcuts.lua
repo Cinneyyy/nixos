@@ -51,8 +51,9 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("hyprlauncher"))
 hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("hyprctl reload"))
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("pkill quickshell; qs"))
 
--- Screenhot.
-hl.bind(mainMod .. "+ S", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
+-- Quick utils (screenshot, colour picker)
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd([[grim -g "$(slurp -d)" - | wl-copy]]))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd([[grim -g "$(slurp -p)" -t ppm - | magick - -format "%[pixel:p{0,0}]" txt:- | grep -oE "#[0-9A-F]{6}" | wl-copy]])) -- doesnt work for some reason
 
 -- OS shortcuts.
 hl.bind(mainMod .. " + F4", hl.dsp.window.close())

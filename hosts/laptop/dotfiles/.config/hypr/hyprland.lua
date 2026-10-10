@@ -13,6 +13,8 @@ hl.config({
     },
 })
 
+hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("hyprlock"), { locked = true, })
+
 require("hyprland/hyprland")
 
 -- local div = math.floor(100 * monitorScale)
