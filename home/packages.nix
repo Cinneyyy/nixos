@@ -17,6 +17,7 @@
         alsa-utils
         keyd
         imagemagick
+        proton-vpn-cli
 
         # Chat
         discord

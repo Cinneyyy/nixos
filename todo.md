@@ -25,3 +25,5 @@
 - neovim config
 - kitty config
 - declarative configs for whatsapp, discord, steam, firefox/browser, signal
+- hyprshutdown
+- hyprsunset

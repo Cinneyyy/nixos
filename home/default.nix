@@ -8,6 +8,7 @@
         ./git.nix
         ./ssh.nix
         ./hyprland.nix
+        ./neovim.nix
     ];
 
     home = {
@@ -16,5 +17,5 @@
         stateVersion = "26.05"; # Don't change!!
     };
 
-    home.file.".config/nvim".source = ./dotfiles/.config/nvim;
+    # home.file.".config/nvim".source = ./dotfiles/.config/nvim;
 }
