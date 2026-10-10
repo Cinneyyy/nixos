@@ -7,9 +7,13 @@ in
 
     programs.hyprlock = {
         enable = true;
-        package = pkgs.hyprpaper;
+        package = pkgs.hyprlock;
         settings = {
             general.hide_cursor = true;
+            auth.pam = {
+                enabled = true;
+                module = "hyprlock";
+            };
             background = {
                 monitor = "";
                 path = "screenshot";

@@ -25,3 +25,4 @@
 - eclarative configs for whatsapp, discord, steam, firefox/browser, signal
 - hyprsunset
 - power menu: clear session (using hyprshutdown --no-exit), hibernate?
+- power menu: fix hyprshutdown process quitting early
