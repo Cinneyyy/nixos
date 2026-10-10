@@ -1,25 +1,27 @@
- # TODO:
- - theme switcher
- - app launcher & switcher
- - wallpaper (themes)
- - internet interface
- - clipboard history
- - gpu/fan/temp resource stats
- - bluetooth
- - pixel measure tool
- - document all shortcuts / actions
- - vpn widget
- - power profiles (laptop)
- - dynamic status bar menu alignment
- - dynamic media info size + eliding
- - brightness osd
- - properly make use of qml namespaces
- - SR unit toggle
- - rework workspace module
- - seperate qs status bar layouts for hosts
- - fix vol. osd displaying "0" when muting before ever changing volume
- - fix color picker
- - screenshots that freeze the screen (hyprcapture?)
- - add suspend / hibernate to power menu
- - fix idle inhibitor not working
- - move as many configs as possible to home manager syntax
+# TODO:
+- theme switcher
+- app launcher & switcher
+- wallpaper (themes)
+- internet interface
+- clipboard history
+- gpu/fan/temp resource stats
+- bluetooth
+- pixel measure tool
+- document all shortcuts / actions
+- vpn widget
+- power profiles (laptop)
+- dynamic status bar menu alignment
+- dynamic media info size + eliding
+- brightness osd
+- properly make use of qml namespaces
+- SR unit toggle
+- seperate qs status bar layouts for hosts
+- fix vol. osd displaying "0" when muting before ever changing volume
+- fix color picker
+- screenshots that freeze the screen (hyprcapture?)
+- fix idle inhibitor not working
+- move as many configs as possible to home manager syntax
+- more cutesy status icon thingys, like a cat or something
+- neovim config
+- kitty config
+- declarative configs for whatsapp, discord, steam, firefox/browser, signal
