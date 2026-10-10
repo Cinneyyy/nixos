@@ -21,8 +21,7 @@
 - screenshots that freeze the screen (hyprcapture?)
 - fix idle inhibitor not working
 - more cutesy status icon thingys, like a cat or something
-- neovim config
-- kitty config
-- declarative configs for whatsapp, discord, steam, firefox/browser, signal
+- neovim config (LSPs grrr, livegrep)
+- eclarative configs for whatsapp, discord, steam, firefox/browser, signal
 - hyprsunset
 - power menu: clear session (using hyprshutdown --no-exit), hibernate?
