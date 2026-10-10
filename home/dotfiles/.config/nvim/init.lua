@@ -7,9 +7,8 @@ vim.keymap.set("n", "<C-t>", ":term<CR>", { remap = true, })
 vim.keymap.set("n", "ci2", "ci\"")
 
 vim.keymap.set("n", "<C-e>", ":co.<CR>", { remap = true, })
-
-vim.keymap.set("n", "<C-q>", ".", { remap = true, })
-
+vim.keymap.set("n", "<C-a>", ".", { remap = true, })
+vim.keymap.set("n", "<C-s>", ":wa<CR>")
 vim.keymap.set("n", "-", vim.cmd.Ex)
 
 vim.api.nvim_create_autocmd("FileType", {

@@ -17,5 +17,5 @@
         stateVersion = "26.05"; # Don't change!!
     };
 
-    # home.file.".config/nvim".source = ./dotfiles/.config/nvim;
+    home.file.".wallpapers".source = ./dotfiles/.wallpapers;
 }

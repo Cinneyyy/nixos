@@ -6,6 +6,7 @@
         hyprlauncher
         hyprlock
         hyprpolkitagent
+        hyprshutdown
         libnotify
         quickshell
         grim

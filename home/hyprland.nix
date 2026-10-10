@@ -3,7 +3,6 @@ let
     suspendOnIdle = false;
 in
 {
-    home.file.".config/hypr/wallpapers".source = ./dotfiles/.config/hypr/wallpapers;
     home.file.".config/hypr/hyprland".source = ./dotfiles/.config/hypr/hyprland;
 
     programs.hyprlock = {
@@ -48,7 +47,7 @@ in
             splash = false;
             wallpaper = {
                 monitor = "";
-                path = "~/.config/hypr/wallpapers/gnome-violet.webp";
+                path = "~/.wallpapers/gnome-violet.webp";
                 fit_mode = "cover";
             };
         };

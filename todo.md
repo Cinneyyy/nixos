@@ -20,10 +20,9 @@
 - fix color picker
 - screenshots that freeze the screen (hyprcapture?)
 - fix idle inhibitor not working
-- move as many configs as possible to home manager syntax
 - more cutesy status icon thingys, like a cat or something
 - neovim config
 - kitty config
 - declarative configs for whatsapp, discord, steam, firefox/browser, signal
-- hyprshutdown
 - hyprsunset
+- power menu: clear session (using hyprshutdown --no-exit), hibernate?
