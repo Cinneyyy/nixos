@@ -9,6 +9,7 @@
         ./ssh.nix
         ./hyprland.nix
         ./neovim.nix
+        ./kitty.nix
     ];
 
     home = {
