@@ -12,9 +12,8 @@
             cat = "bat";
             cloc = "cloc .";
 
-            gadd = "git add .";
-            gcommit = "git commit -m";
-            gpush = "git push -u";
+            commit = "git add . && git commit -m";
+            push = "git push -u";
         };
         initExtra = ''
             export SUDO_EDITOR=nvim
