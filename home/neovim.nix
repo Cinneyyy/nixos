@@ -13,7 +13,7 @@
     programs.neovim = {
         enable = true;
         defaultEditor = true;
-        initLua = builtins.readFile ./dotfiles/.config/nvim/init.lua;
+	initLua = builtins.readFile ./dotfiles/.config/nvim/init.lua;
         plugins = with pkgs.vimPlugins; [
             telescope-nvim
             # mason-nvim
@@ -23,4 +23,6 @@
             # nvim-treesitter
         ];
     };
+
+    home.file.".config/nvim/lua".source = ./dotfiles/.config/nvim/lua;
  }

@@ -1,4 +1,4 @@
-require("hyprland/config/startup")
+require("hyprland/config/autostart")
 require("hyprland/config/window_style")
 require("hyprland/config/animations")
 require("hyprland/config/input")

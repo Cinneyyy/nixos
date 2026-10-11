@@ -3,6 +3,21 @@ let
     suspendOnIdle = false;
 in
 {
+    home.packages = with pkgs; [
+        kitty
+        hyprlauncher
+        hyprpolkitagent
+        hyprshutdown
+        hyprpaper
+        hyprlock
+        libnotify
+        quickshell
+        grim
+        slurp
+        wl-clipboard
+        playerctl
+    ];
+    
     home.file.".config/hypr/hyprland".source = ./dotfiles/.config/hypr/hyprland;
 
     programs.hyprlock = {
@@ -51,7 +66,7 @@ in
             splash = false;
             wallpaper = {
                 monitor = "";
-                path = "~/.wallpapers/gnome-violet.webp";
+                path = "~/.wallpapers/black.png";
                 fit_mode = "cover";
             };
         };
