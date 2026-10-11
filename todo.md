@@ -16,7 +16,6 @@
 - properly make use of qml namespaces
 - SR unit toggle
 - seperate qs status bar layouts for hosts
-- fix vol. osd displaying "0" when muting before ever changing volume
 - fix color picker
 - screenshots that freeze the screen (hyprcapture?)
 - fix idle inhibitor not working
@@ -25,3 +24,7 @@
 - eclarative configs for whatsapp, discord, steam, firefox/browser, signal
 - hyprsunset
 - power menu: clear session (using hyprshutdown --no-exit), hibernate?
+- bitwarden menu
+- make bgBorder colors uniform
+- rename accentPrimary to accent
+- close status bar menus when clicking elsewhere

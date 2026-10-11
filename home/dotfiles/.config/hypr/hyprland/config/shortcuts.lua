@@ -1,48 +1,4 @@
--- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 local mainMod = "SUPER"
-
--- Focus/open programs.
-local function focus(program, class)
-    local windows = hl.get_windows({ class = class })
-
-    if #windows == 0 then
-        hl.exec_cmd(program)
-        return
-    end
-
-    if #windows == 1 then
-        hl.dispatch(hl.dsp.focus({ window = windows[1] }))
-        return
-    end
-
-    local active = hl.get_active_window()
-    for i, window in ipairs(windows) do
-        if active and window.address == active.address then
-            local next = windows[i % #windows + 1]
-            hl.dispatch(hl.dsp.focus({ window = next }))
-            return
-        end
-    end
-end
-
-local programShortcuts = {
-    { "1", "nautilus", "org.gnome.Nautilus", },
-    { "2", "firefox", },
-    { "3", "discord", },
-    { "4", "kitty", },
-    { "5", "steam", },
-}
-
-for _, sh in ipairs(programShortcuts) do
-    hl.bind(mainMod .. " + CTRL + " .. sh[1], hl.dsp.exec_cmd(sh[2]))
-
-    local class = sh[2]
-    if #sh == 3 then
-        class = sh[3]
-    end
-
-    hl.bind(mainMod .. " + " .. sh[1], function() focus(sh[2], class) end)
-end
 
 -- Hyprlauncher
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("hyprlauncher"))
@@ -53,7 +9,7 @@ hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("pkill quickshell; qs"))
 
 -- Quick utils (screenshot, colour picker)
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd([[grim -g "$(slurp -d)" - | wl-copy]]))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd([[grim -g "$(slurp -p)" -t ppm - | magick - -format "%[pixel:p{0,0}]" txt:- | grep -oE "#[0-9A-F]{6}" | wl-copy]])) -- doesnt work for some reason
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd([[grim -g "$(slurp -p)" -t ppm - | magick - -format "%[pixel:p{0,0}]" txt:- | grep -oE "#[0-9A-F]{6}" | tr '[:upper:]' '[:lower:]' | wl-copy -n]]))
 
 -- OS shortcuts.
 hl.bind(mainMod .. " + F4", hl.dsp.window.close())
@@ -155,3 +111,46 @@ hl.bind(mainMod .. " + SHIFT + N", hl.dsp.window.move({ workspace = "e-1" }))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.window.move({ workspace = "e+1" }))
 hl.bind(mainMod .. " + SHIFT + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + SHIFT + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+
+-- Focus/open programs.
+local function focus(program, class)
+    local windows = hl.get_windows({ class = class })
+
+    if #windows == 0 then
+        hl.exec_cmd(program)
+        return
+    end
+
+    if #windows == 1 then
+        hl.dispatch(hl.dsp.focus({ window = windows[1] }))
+        return
+    end
+
+    local active = hl.get_active_window()
+    for i, window in ipairs(windows) do
+        if active and window.address == active.address then
+            local next = windows[i % #windows + 1]
+            hl.dispatch(hl.dsp.focus({ window = next }))
+            return
+        end
+    end
+end
+
+local programShortcuts = {
+    { "1", "nautilus", "org.gnome.Nautilus", },
+    { "2", "firefox", },
+    { "3", "discord", },
+    { "4", "kitty", },
+    { "5", "steam", },
+}
+
+for _, sh in ipairs(programShortcuts) do
+    hl.bind(mainMod .. " + CTRL + " .. sh[1], hl.dsp.exec_cmd(sh[2]))
+
+    local class = sh[2]
+    if #sh == 3 then
+        class = sh[3]
+    end
+
+    hl.bind(mainMod .. " + " .. sh[1], function() focus(sh[2], class) end)
+end

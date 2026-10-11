@@ -32,3 +32,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
         vim.hl.on_yank()
     end
 })
+
+-- Show tabs, trailing whitespace, and nbsp
+vim.o.list = true;
+vim.opt.listchars = {
+    tab = "» ",
+    trail = "·",
+    nbsp = "␣",
+}

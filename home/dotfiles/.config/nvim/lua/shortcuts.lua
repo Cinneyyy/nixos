@@ -1,27 +1,30 @@
 -- Move line(s) up/down
-vim.keymap.set("n", "<C-j>", ":m .+1<CR>==")
-vim.keymap.set("n", "<C-k>", ":m .-2<CR>==")
-vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
+vim.keymap.set("n", "<c-j>", ":m .+1<cr>==")
+vim.keymap.set("n", "<c-k>", ":m .-2<cr>==")
+vim.keymap.set("v", "<c-j>", ":m '>+1<cr>gv=gv")
+vim.keymap.set("v", "<c-k>", ":m '<-2<cr>gv=gv")
 
 -- Terminal
-vim.keymap.set("n", "<C-t>", ":term<CR>", { remap = true, })
+vim.keymap.set("n", "<c-t>", ":term<cr>i", { remap = true, })
 
 -- Duplicate line
-vim.keymap.set("n", "<C-e>", ":co.<CR>", { remap = true, })
+vim.keymap.set("n", "<c-e>", ":co.<cr>", { remap = true, })
 
 -- Repeat last action
-vim.keymap.set("n", "<C-a>", ".", { remap = true, })
+vim.keymap.set("n", "<c-a>", ".", { remap = true, })
 
 -- Save (all)
-vim.keymap.set("n", "<C-s>", ":wa<CR>")
+vim.keymap.set("n", "<c-s>", ":wa<cr>")
 
--- NetRw
+-- Netrw
 vim.keymap.set("n", "-", vim.cmd.Ex)
-vim.keymap.set("n", "<C-x>", "-", { remap = true, })
+vim.keymap.set("n", "<c-x>", "-", { remap = true, })
 
 -- Clear highlights
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<cr>")
 
--- Exit terminal
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>")
+-- Disable arrow keys in normal mode
+vim.keymap.set("n", "<left>", ":echo 'no, fuck you'<cr>")
+vim.keymap.set("n", "<right>", ":echo 'no, fuck you'<cr>")
+vim.keymap.set("n", "<up>", ":echo 'no, fuck you'<cr>")
+vim.keymap.set("n", "<down>", ":echo 'no, fuck you'<cr>")
