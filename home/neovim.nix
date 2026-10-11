@@ -18,6 +18,7 @@
         plugins = with pkgs.vimPlugins; [
             telescope-nvim
             indent-blankline-nvim
+            rainbow-delimiters-nvim
             # mason-nvim
             # mason-lspconfig-nvim
             # blink-cmp

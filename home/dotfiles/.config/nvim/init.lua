@@ -1,6 +1,5 @@
 require("shortcuts")
 require("config")
 require("theme")
-require("plugins/telescope")
-require("plugins/misc")
+require("plugins")
 -- require("lsp")
