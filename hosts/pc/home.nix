@@ -22,7 +22,7 @@
                 ignore_dbus_inhibit = false;
                 ignore_systemd_inhibit = false;
                 ignore_wayland_inhibit = false;
-                lock_cmd = "pidof hyprlock || hyprlock"
+                lock_cmd = "pidof hyprlock || hyprlock";
             };
             listener = [
                 {

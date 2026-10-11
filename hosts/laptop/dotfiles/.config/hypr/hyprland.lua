@@ -7,6 +7,8 @@ hl.monitor({
     scale = monitorScale,
 })
 
+numMonitors = 1
+
 hl.config({
     xwayland = {
         force_zero_scaling = true,

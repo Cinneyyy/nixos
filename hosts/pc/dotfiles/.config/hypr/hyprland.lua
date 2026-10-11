@@ -12,4 +12,6 @@ hl.monitor({
     scale = 1,
 })
 
+numMonitors = 2
+
 require("hyprland/hyprland")

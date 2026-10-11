@@ -126,8 +126,8 @@ hl.bind("CTRL + F10", hl.dsp.send_shortcut({
 
 -- Workspaces
 for i = 1, 4 do
-    hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.focus({ workspace = i, }))
-    hl.bind("ALT + SHIFT + " .. i, hl.dsp.window.move({ workspace = i, }))
+    hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.focus({ workspace = tostring(i), }))
+    hl.bind("ALT + SHIFT + " .. i, hl.dsp.window.move({ workspace = tostring(i), }))
 end
 
 hl.bind(mainMod .. " + N", hl.dsp.focus({ workspace = "e-1" }))
