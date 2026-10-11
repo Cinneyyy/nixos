@@ -1,0 +1,11 @@
+{
+    "protocol": "wireguard",
+    "killswitch": 1,
+    "ipv6": true,
+    "anonymous_crash_reports": false,
+    "features": {
+        "netshield": 1,
+        "moderate_nat": false,
+        "vpn_accelerator": true
+    }
+}

@@ -17,7 +17,6 @@
         alsa-utils
         keyd
         imagemagick
-        proton-vpn-cli
 
         # Chat
         discord
@@ -30,7 +29,6 @@
         audacity
         dvdstyler
         gnome-system-monitor
-        qbittorrent
         nautilus
         pcmanfm
         photoqt

@@ -10,6 +10,8 @@
         ./hyprland.nix
         ./neovim.nix
         ./kitty.nix
+        ./protonvpn.nix
+        ./qbittorrent.nix
     ];
 
     home = {

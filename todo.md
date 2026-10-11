@@ -28,7 +28,3 @@
 - make bgBorder colors uniform
 - rename accentPrimary to accent
 - close status bar menus when clicking elsewhere
-- hyprland shortcuts for resizing windows
-- change powermenu dispatch call to hyprctl eval "hl.dispatch ..."
-- close powermenu on any action
-- fix qs workspace module

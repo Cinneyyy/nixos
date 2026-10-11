@@ -17,7 +17,7 @@ in
         wl-clipboard
         playerctl
     ];
-    
+
     home.file.".config/hypr/hyprland".source = ./dotfiles/.config/hypr/hyprland;
 
     programs.hyprlock = {

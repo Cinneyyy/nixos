@@ -8,8 +8,6 @@
             la = "ls -a";
 
             nv = "nvim .";
-
-            cat = "bat";
             cloc = "cloc .";
 
             commit = "git add . && git commit -m";

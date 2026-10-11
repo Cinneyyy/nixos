@@ -26,9 +26,9 @@
         settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
     };
 
-    # qt = {
-    #     enable = true;
-    #     platformTheme.name = "qtct";
-    #     style.name = "kvantum";
-    # };
+    qt = {
+        enable = true;
+        platformTheme.name = "adwaita";
+        style.name = "adwaita-dark";
+    };
 }
