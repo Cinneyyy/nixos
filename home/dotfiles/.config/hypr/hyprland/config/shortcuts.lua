@@ -19,30 +19,58 @@ hl.bind(mainMod .. " + DELETE", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/n
 -- Window operations.
 -- hl.bind(mainMod .. " + Q", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + D", hl.dsp.layout("togglesplit")) -- dwindle only
-hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle", }))
 
 -- Move focus with arrow keys.
-hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
-hl.bind(mainMod .. " + LEFT", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + RIGHT", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + UP", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + DOWN", hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left", }))
+hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right", }))
+hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up", }))
+hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down", }))
+hl.bind(mainMod .. " + LEFT", hl.dsp.focus({ direction = "left", }))
+hl.bind(mainMod .. " + RIGHT", hl.dsp.focus({ direction = "right", }))
+hl.bind(mainMod .. " + UP", hl.dsp.focus({ direction = "up", }))
+hl.bind(mainMod .. " + DOWN", hl.dsp.focus({ direction = "down", }))
 
 -- Move windows with arrow keys.
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
-hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
-hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
-hl.bind(mainMod .. " + SHIFT + LEFT", hl.dsp.window.move({ direction = "left" }))
-hl.bind(mainMod .. " + SHIFT + RIGHT", hl.dsp.window.move({ direction = "right" }))
-hl.bind(mainMod .. " + SHIFT + UP", hl.dsp.window.move({ direction = "up" }))
-hl.bind(mainMod .. " + SHIFT + DOWN", hl.dsp.window.move({ direction = "down" }))
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "left", }))
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right", }))
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up", }))
+hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down", }))
+hl.bind(mainMod .. " + SHIFT + LEFT", hl.dsp.window.move({ direction = "left", }))
+hl.bind(mainMod .. " + SHIFT + RIGHT", hl.dsp.window.move({ direction = "right", }))
+hl.bind(mainMod .. " + SHIFT + UP", hl.dsp.window.move({ direction = "up", }))
+hl.bind(mainMod .. " + SHIFT + DOWN", hl.dsp.window.move({ direction = "down", }))
+
+-- Resize windows with arrow keys.
+local function resizeDsp(x, y, step)
+    return hl.dsp.window.resize({
+        x = step * x,
+        y = step * y,
+        relative = true,
+    })
+end
+local smallStep = 30
+hl.bind(mainMod .. " + ALT + H", resizeDsp(-1, 0, smallStep), { repeating = true, })
+hl.bind(mainMod .. " + ALT + L", resizeDsp(1, 0, smallStep), { repeating = true, })
+hl.bind(mainMod .. " + ALT + K", resizeDsp(0, -1, smallStep), { repeating = true, })
+hl.bind(mainMod .. " + ALT + J", resizeDsp(0, 1, smallStep), { repeating = true, })
+hl.bind(mainMod .. " + ALT + LEFT", resizeDsp(-1, 0, smallStep), { repeating = true, })
+hl.bind(mainMod .. " + ALT + RIGHT", resizeDsp(1, 0, smallStep), { repeating = true, })
+hl.bind(mainMod .. " + ALT + UP", resizeDsp(0, -1, smallStep), { repeating = true, })
+hl.bind(mainMod .. " + ALT + DOWN", resizeDsp(0, 1, smallStep), { repeating = true, })
+
+local bigStep = 150
+hl.bind(mainMod .. " + CTRL + H", resizeDsp(-1, 0, bigStep), { repeating = true, })
+hl.bind(mainMod .. " + CTRL + L", resizeDsp(1, 0, bigStep), { repeating = true, })
+hl.bind(mainMod .. " + CTRL + K", resizeDsp(0, -1, bigStep), { repeating = true, })
+hl.bind(mainMod .. " + CTRL + J", resizeDsp(0, 1, bigStep), { repeating = true, })
+hl.bind(mainMod .. " + CTRL + LEFT", resizeDsp(-1, 0, bigStep), { repeating = true, })
+hl.bind(mainMod .. " + CTRL + RIGHT", resizeDsp(1, 0, bigStep), { repeating = true, })
+hl.bind(mainMod .. " + CTRL + UP", resizeDsp(0, -1, bigStep), { repeating = true, })
+hl.bind(mainMod .. " + CTRL + DOWN", resizeDsp(0, 1, bigStep), { repeating = true, })
 
 -- Move / resize windows with lmb/rmb.
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true, })
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true, })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true, })
 
 -- Lower/raise/mute volume.
