@@ -31,8 +31,8 @@
         gnome-system-monitor
         nautilus
         pcmanfm
-        photoqt
         ausweisapp
+        eog
 
         # Games
         prismlauncher

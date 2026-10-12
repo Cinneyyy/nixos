@@ -15,7 +15,6 @@
 - clipboard history
 - gpu/fan/temp resource stats
 - bluetooth
-- vpn widget
 - power profiles (laptop)
 - dynamic status bar menu alignment
 - dynamic media info size + eliding
@@ -30,5 +29,3 @@
 - make bgBorder colors uniform
 - rename accentPrimary to accent
 - close status bar menus when clicking elsewhere
-- fix network speed module not working with vpn
-- include wired in network menu
