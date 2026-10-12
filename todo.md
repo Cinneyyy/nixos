@@ -1,13 +1,20 @@
-# TODO:
-- theme switcher
-- app launcher & switcher
+# Todo:
 - wallpaper (themes)
 - internet interface
+- pixel measure tool
+- document all shortcuts / actions
+- fix color picker
+- screenshots that freeze the screen (hyprcapture?)
+- neovim config (LSPs grrr)
+- declarative configs for steam (!!), whatsapp, discord, firefox/browser, signal
+- hyprsunset
+
+# Quickshell:
+- theme switcher
+- app launcher & switcher
 - clipboard history
 - gpu/fan/temp resource stats
 - bluetooth
-- pixel measure tool
-- document all shortcuts / actions
 - vpn widget
 - power profiles (laptop)
 - dynamic status bar menu alignment
@@ -16,15 +23,12 @@
 - properly make use of qml namespaces
 - SR unit toggle
 - seperate qs status bar layouts for hosts
-- fix color picker
-- screenshots that freeze the screen (hyprcapture?)
 - fix idle inhibitor not working
 - more cutesy status icon thingys, like a cat or something
-- neovim config (LSPs grrr)
-- eclarative configs for whatsapp, discord, steam, firefox/browser, signal
-- hyprsunset
 - power menu: clear session (using hyprshutdown --no-exit), hibernate?
-- bitwarden menu
+- qs bitwarden menu
 - make bgBorder colors uniform
 - rename accentPrimary to accent
 - close status bar menus when clicking elsewhere
+- fix network speed module not working with vpn
+- include wired in network menu
