@@ -19,6 +19,7 @@ in
     ];
 
     home.file.".config/hypr/hyprland".source = ./dotfiles/.config/hypr/hyprland;
+    home.file.".config/hypr/restore_hyprlock.sh".source = ./dotfiles/.config/hypr/hyprland;
 
     programs.hyprlock = {
         enable = true;

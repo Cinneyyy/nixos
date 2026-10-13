@@ -1,7 +1,7 @@
 local mainMod = "SUPER"
 
 -- Hyprlauncher
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("hyprlauncher"))
+hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("hyprlauncher"))
 
 -- Reload keybinds
 hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("hyprctl reload"))
@@ -126,19 +126,19 @@ hl.bind("CTRL + F10", hl.dsp.send_shortcut({
 
 -- Workspaces
 for i = 1, 4 do
-    hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.focus({ workspace = tostring(i), }))
-    hl.bind("ALT + SHIFT + " .. i, hl.dsp.window.move({ workspace = tostring(i), }))
+    hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = tostring(i), }))
+    hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = tostring(i), }))
 end
 
 hl.bind(mainMod .. " + N", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + M", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+-- hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+-- hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 
 hl.bind(mainMod .. " + SHIFT + N", hl.dsp.window.move({ workspace = "e-1" }))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.window.move({ workspace = "e+1" }))
-hl.bind(mainMod .. " + SHIFT + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + SHIFT + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+-- hl.bind(mainMod .. " + SHIFT + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+-- hl.bind(mainMod .. " + SHIFT + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 
 -- Focus/open programs.
 local function focus(program, class)
@@ -165,20 +165,14 @@ local function focus(program, class)
 end
 
 local programShortcuts = {
-    { "1", "nautilus", "org.gnome.Nautilus", },
-    { "2", "firefox", },
-    { "3", "discord", },
-    { "4", "kitty", },
-    { "5", "steam", },
+    { "q", "nautilus", "org.gnome.Nautilus", },
+    { "w", "firefox", },
+    { "e", "discord", },
+    { "r", "kitty", },
+    { "t", "steam", },
 }
 
 for _, sh in ipairs(programShortcuts) do
-    hl.bind(mainMod .. " + CTRL + " .. sh[1], hl.dsp.exec_cmd(sh[2]))
-
-    local class = sh[2]
-    if #sh == 3 then
-        class = sh[3]
-    end
-
-    hl.bind(mainMod .. " + " .. sh[1], function() focus(sh[2], class) end)
+    hl.bind(mainMod .. " + ALT + " .. sh[1], hl.dsp.exec_cmd(sh[2]))
+    hl.bind(mainMod .. " + " .. sh[1], function() focus(sh[2], #sh == 3 and sh[3] or sh[2]) end)
 end

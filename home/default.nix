@@ -4,12 +4,15 @@
     imports = [
         ./packages.nix
         ./theme.nix
+
         ./bash.nix
         ./git.nix
         ./ssh.nix
-        ./hyprland.nix
-        ./neovim.nix
+
         ./kitty.nix
+        ./neovim.nix
+        ./hyprland.nix
+
         ./protonvpn.nix
         ./qbittorrent.nix
     ];

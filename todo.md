@@ -7,6 +7,7 @@
 - screenshots that freeze the screen (hyprcapture?)
 - neovim config (LSPs grrr)
 - declarative configs for steam (!!), whatsapp, discord, firefox/browser, signal
+- kitty fancy autocompletion
 - hyprsunset
 
 # Quickshell:
@@ -29,3 +30,4 @@
 - make bgBorder colors uniform
 - rename accentPrimary to accent
 - close status bar menus when clicking elsewhere
+- weird workspace module behaviour when switching from an empty workspace

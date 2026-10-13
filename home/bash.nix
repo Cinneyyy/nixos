@@ -15,7 +15,9 @@
             ff = "fastfetch";
         };
         initExtra = ''
-            export SUDO_EDITOR=nvim
+            ffmeta() {
+                ffmpeg -i "$1" -c copy -metadata title="$2" -metadata comment="" "$3"
+            }
         '';
     };
 }
