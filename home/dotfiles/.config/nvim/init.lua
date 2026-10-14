@@ -1,5 +1,0 @@
-require("shortcuts")
-require("config")
-require("theme")
-require("plugins")
--- require("lsp")
