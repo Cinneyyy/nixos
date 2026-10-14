@@ -33,10 +33,10 @@
                 { mode = "n"; key = "<esc>"; action = ":nohlsearch<cr>"; }
 
                 # Disable arrow keys in normal mode.
-                { mode = "n"; key = "<left>"; action = ":echo 'No, fuck you'<cr>"; }
-                { mode = "n"; key = "<right>"; action = ":echo 'No, fuck you'<cr>"; }
-                { mode = "n"; key = "<up>"; action = ":echo 'No, fuck you'<cr>"; }
-                { mode = "n"; key = "<down>"; action = ":echo 'No, fuck you'<cr>"; }
+                { mode = "n"; key = "<left>"; action = ":echo 'No, fuck you.'<cr>"; }
+                { mode = "n"; key = "<right>"; action = ":echo 'No, fuck you.'<cr>"; }
+                { mode = "n"; key = "<up>"; action = ":echo 'No, fuck you.'<cr>"; }
+                { mode = "n"; key = "<down>"; action = ":echo 'No, fuck you.'<cr>"; }
             ];
             autocmds = [
                 # Tab => 4 spaces.
@@ -44,7 +44,7 @@
                     event = [
                         "FileType"
                     ];
-                    callback = lib.generators.mkLuaInline ''
+                    callback = lib.mkLuaInline ''
                         function ()
                             vim.opt_local.expandtab = true;
                             vim.opt_local.tabstop = 4;
@@ -59,7 +59,7 @@
                     event = [
                         "TextYankPost"
                     ];
-                    callback = lib.generators.mkLuaInline ''
+                    callback = lib.mkLuaInline ''
                         function ()
                             vim.hl.on_yank()
                         end
@@ -97,7 +97,6 @@
                 local colorSchemes = {
                     "catppuccin",
                     "darkblue",
-                    "desert",
                     "elflord",
                     "industry",
                     "lunaperche",
@@ -188,6 +187,82 @@
                         },
                     }
                 '';
+            };
+            lsp = {
+                enable = true;
+                mappings = {
+                    renameSymbol = "grn";
+                    codeAction = "gca";
+                    goToDefinition = "gd";
+                    goToDeclaration = "gD";
+                    signatureHelp = "gs";
+                };
+            };
+            autocomplete = {
+                blink-cmp = {
+                    enable = true;
+                    mappings = {
+                        complete = "<c-space>";
+                        next = "<c-n>";
+                        previous = "<c-p>";
+                        confirm = "<c-o>";
+                        close = "<c-c>";
+                    };
+                };
+            };
+            languages = {
+                enableTreesitter = true;
+                enableFormat = false;
+                csharp = {
+                    enable = true;
+                    lsp.servers = [
+                        "roslyn-ls"
+                    ];
+                };
+                nix = {
+                    enable = true;
+                    extraDiagnostics.enable = true;
+                    lsp.enable = true;
+                };
+                clang = {
+                    enable = true;
+                    cHeader = true;
+                    extraDiagnostics.enable = true;
+                };
+                cmake = {
+                    enable = true;
+                };
+                json = {
+                    enable = true;
+                };
+                bash = {
+                    enable = true;
+                    extraDiagnostics.enable = true;
+                };
+                html = {
+                    enable = true;
+                    extraDiagnostics.enable = true;
+                    treesitter.autotagHtml = true;
+                };
+                css = {
+                    enable = true;
+                };
+                typescript = {
+                    enable = true;
+                    extraDiagnostics.enable = true;
+                };
+                lua = {
+                    enable = true;
+                    extraDiagnostics.enable = true;
+                };
+                markdown = {
+                    enable = true;
+                    extraDiagnostics.enable = true;
+                    extensions.markview-nvim = {
+                        enable = true;
+                        setupOpts.preview.enable = false;
+                    };
+                };
             };
         };
     };

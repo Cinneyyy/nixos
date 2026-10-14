@@ -15,7 +15,7 @@
         };
     };
 
-    outputs = { self, nixpkgs, home-manager, nvf, ... }: {
+    outputs = { nixpkgs, home-manager, nvf, ... }: {
         nixosConfigurations = {
             pc = nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
