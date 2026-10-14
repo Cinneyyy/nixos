@@ -26,7 +26,7 @@ end
 hl.on("hyprland.start", function ()
     for i = numMonitors, 1, -1 do
         hl.exec_cmd(
-            [[hyprctl eval "hl.dispatch(hl.dsp.focus({ workspace = \"]] .. tostring(i) .. [[\", }))"]])
+            "hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = '" .. tostring(i) .. ", }))'")
     end
 end)
 
@@ -51,6 +51,12 @@ hl.window_rule({
 })
 hl.window_rule({
     match = {
+        title = ".*[Ss]team.*",
+    },
+    workspace = "2",
+})
+hl.window_rule({
+    match = {
         class = ".*(bitwarden|whatsapp|signal).*",
     },
     workspace = "3",
@@ -65,9 +71,10 @@ hl.window_rule({
     center = true,
 })
 
--- hl.window_rule({
---     match = {
---         float = true,
---     },
---     center = true,
--- })
+hl.window_rule({
+    match = {
+        class = "steam_app_[0-9]+",
+    },
+    content = "game",
+    workspace = "1",
+})
