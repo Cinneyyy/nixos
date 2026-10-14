@@ -10,8 +10,9 @@
         ./ssh.nix
 
         ./kitty.nix
-        ./neovim.nix
         ./hyprland.nix
+        ./nvf.nix
+        # ./neovim.nix
 
         ./protonvpn.nix
         ./qbittorrent.nix

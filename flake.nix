@@ -8,16 +8,26 @@
             url = "github:nix-community/home-manager/release-26.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        nvf = {
+            url = "github:notashelf/nvf";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
-    outputs = { self, nixpkgs, home-manager, ... }: {
+    outputs = { self, nixpkgs, home-manager, nvf, ... }: {
         nixosConfigurations = {
             pc = nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
                 modules = [
                     ./hosts/pc
                     home-manager.nixosModules.home-manager {
-                        home-manager.users.colin = import ./hosts/pc/home.nix;
+                        home-manager = {
+                            users.colin = import ./hosts/pc/home.nix;
+                            sharedModules = [
+                                nvf.homeManagerModules.default
+                            ];
+                        };
                     }
                 ];
             };
@@ -26,7 +36,12 @@
                 modules = [
                     ./hosts/laptop
                     home-manager.nixosModules.home-manager {
-                        home-manager.users.colin = import ./hosts/laptop/home.nix;
+                        home-manager = {
+                            users.colin = import ./hosts/laptop/home.nix;
+                            sharedModules = [
+                                nvf.homeManagerModules.default
+                            ];
+                        };
                     }
                 ];
             };

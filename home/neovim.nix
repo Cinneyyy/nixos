@@ -1,6 +1,6 @@
- { pkgs, ... }:
+{ pkgs, ... }:
 
- {
+{
     home.packages = with pkgs; [
         ripgrep
         # clang-tools
@@ -28,4 +28,4 @@
     };
 
     home.file.".config/nvim/lua".source = ./dotfiles/.config/nvim/lua;
- }
+}
