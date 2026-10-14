@@ -3,7 +3,6 @@
 - internet interface
 - pixel measure tool
 - document all shortcuts / actions
-- fix color picker
 - screenshots that freeze the screen (hyprcapture?)
 - neovim config (LSPs grrr)
 - declarative configs for steam (!!), whatsapp, discord, firefox/browser, signal
@@ -11,6 +10,7 @@
 - hyprsunset
 
 # Quickshell:
+- document all shortcuts / actions
 - theme switcher
 - app launcher & switcher
 - clipboard history
@@ -21,7 +21,6 @@
 - dynamic media info size + eliding
 - brightness osd
 - properly make use of qml namespaces
-- SR unit toggle
 - seperate qs status bar layouts for hosts
 - fix idle inhibitor not working
 - more cutesy status icon thingys, like a cat or something

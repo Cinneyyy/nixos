@@ -65,9 +65,9 @@ hl.window_rule({
     center = true,
 })
 
-hl.window_rule({
-    match = {
-        float = true,
-    },
-    center = true,
-})
+-- hl.window_rule({
+--     match = {
+--         float = true,
+--     },
+--     center = true,
+-- })
