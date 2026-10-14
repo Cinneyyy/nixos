@@ -1,15 +1,13 @@
-# Todo:
+# Todo
 - wallpaper (themes)
-- internet interface
 - pixel measure tool
 - document all shortcuts / actions
 - screenshots that freeze the screen (hyprcapture?)
-- neovim config (LSPs grrr)
 - declarative configs for steam (!!), whatsapp, discord, firefox/browser, signal
 - kitty fancy autocompletion
 - hyprsunset
 
-# Quickshell:
+# Quickshell
 - document all shortcuts / actions
 - theme switcher
 - app launcher & switcher
@@ -19,12 +17,10 @@
 - power profiles (laptop)
 - dynamic status bar menu alignment
 - dynamic media info size + eliding
-- brightness osd
 - properly make use of qml namespaces
 - seperate qs status bar layouts for hosts
 - fix idle inhibitor not working
-- more cutesy status icon thingys, like a cat or something
-- power menu: clear session (using hyprshutdown --no-exit), hibernate?
+- more cutesy status icon thingies, like a cat or something
 - qs bitwarden menu
 - make bgBorder colors uniform
 - rename accentPrimary to accent
