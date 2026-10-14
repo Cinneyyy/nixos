@@ -263,6 +263,9 @@
                         setupOpts.preview.enable = false;
                     };
                 };
+                qml = {
+                    enable = true;
+                };
             };
         };
     };
