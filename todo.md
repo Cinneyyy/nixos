@@ -6,6 +6,7 @@
 - declarative configs for steam (!!), whatsapp, discord, firefox/browser, signal
 - kitty fancy autocompletion
 - hyprsunset
+- fix c and quickshell ls
 
 # Quickshell
 - document all shortcuts / actions

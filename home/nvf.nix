@@ -191,11 +191,14 @@
             lsp = {
                 enable = true;
                 mappings = {
-                    renameSymbol = "grn";
-                    codeAction = "gca";
+                    renameSymbol = "gr";
+                    codeAction = "gc";
                     goToDefinition = "gd";
                     goToDeclaration = "gD";
                     signatureHelp = "gs";
+                    openDiagnosticFloat = "go";
+                    nextDiagnostic = "gn";
+                    previousDiagnostic = "gp";
                 };
             };
             autocomplete = {
