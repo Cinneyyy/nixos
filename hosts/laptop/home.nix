@@ -1,7 +1,4 @@
 { pkgs, inputs, ... }:
-let
-    suspendOnIdle = false;
-in
 {
     imports = [
         ./../../home

@@ -1,7 +1,4 @@
 { pkgs, ... }:
-let
-    suspendOnIdle = false;
-in
 {
     home.packages = with pkgs; [
         kitty
