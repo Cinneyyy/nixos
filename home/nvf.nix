@@ -10,7 +10,7 @@
                 # Move lines(s) up/down with CTRL+j/k.
                 { mode = "n"; key = "<c-j>"; action = ":m .+1<cr>=="; }
                 { mode = "n"; key = "<c-k>"; action = ":m .-2<cr>=="; }
-                { mode = "v"; key = "<c-j>"; action = ":m '<+1<cr>gv=gv"; }
+                { mode = "v"; key = "<c-j>"; action = ":m '>+1<cr>gv=gv"; }
                 { mode = "v"; key = "<c-k>"; action = ":m '<-2<cr>gv=gv"; }
 
                 # Open terminal.
@@ -39,21 +39,6 @@
                 { mode = "n"; key = "<down>"; action = ":echo 'No, fuck you.'<cr>"; }
             ];
             autocmds = [
-                # Tab => 4 spaces.
-                {
-                    event = [
-                        "FileType"
-                    ];
-                    callback = lib.mkLuaInline ''
-                        function ()
-                            vim.opt_local.expandtab = true;
-                            vim.opt_local.tabstop = 4;
-                            vim.opt_local.shiftwidth = 4;
-                            vim.opt_local.softtabstop = 4;
-                        end
-                    '';
-                }
-
                 # Hightlight on yank.
                 {
                     event = [
@@ -62,6 +47,23 @@
                     callback = lib.mkLuaInline ''
                         function ()
                             vim.hl.on_yank()
+                        end
+                    '';
+                }
+
+                # Disable treesitter indentation for C#.
+                {
+                    event = [
+                        "FileType"
+                    ];
+                    pattern = [
+                        "cs"
+                        "csx"
+                    ];
+                    callback = lib.mkLuaInline ''
+                        function ()
+                            vim.bo.indentexpr = ""
+                            vim.bo.autoindent = true
                         end
                     '';
                 }
@@ -91,6 +93,16 @@
 
                 # Sync yank with system clipboard.
                 clipboard = "unnamedplus";
+
+                # Tabs to 4 spaces.
+                expandtab = true;
+                shiftwidth = 4;
+                tabstop = 4;
+                softtabstop = 4;
+
+                # Indentation.
+                autoindent = true;
+                smartindent = true;
             };
             # Random color scheme.
             luaConfigRC.colorScheme = ''
@@ -145,8 +157,8 @@
                 rainbow-delimiters-nvim
             ];
             luaConfigRC = {
-                # Find hidden files.
                 telescope = ''
+                    -- Find hidden files
                     vim.keymap.set("n", "<space>sh", function ()
                         require("telescope.builtin").find_files({
                             find_command = {
@@ -204,12 +216,23 @@
             autocomplete = {
                 blink-cmp = {
                     enable = true;
-                    mappings = {
-                        complete = "<c-space>";
-                        next = "<c-n>";
-                        previous = "<c-p>";
-                        confirm = "<c-o>";
-                        close = "<c-c>";
+                    setupOpts = {
+                        keymap = {
+                            preset = "none";
+                            "<c-space>" = ["show" "show_documentation" "fallback"];
+                            "<c-n>" = ["select_next" "fallback"];
+                            "<c-p>" = ["select_prev" "fallback"];
+                            "<c-c>" = ["hide" "fallback"];
+                            "<c-o>" = ["accept" "fallback"];
+                            "<c-s>" = ["show_signature" "hide_signature" "fallback"];
+                        };
+                        appearance.nerd_font_variant = "mono";
+                        completion = {
+                            auto_show = true;
+                            auto_show_delay_ms = 200;
+                        };
+                        fuzzy.implementation = "lua";
+                        signature.enabled = true;
                     };
                 };
             };
@@ -219,8 +242,13 @@
                 csharp = {
                     enable = true;
                     lsp.servers = [
-                        "roslyn-ls"
+                        "csharp_ls"
+                        # "roslyn-ls"
                     ];
+                    extensions = {
+                        csharpls-extended-lsp-nvim.enable = true;
+                        # roslyn-nvim.enable = true;
+                    };
                 };
                 nix = {
                     enable = true;

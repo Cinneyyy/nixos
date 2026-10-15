@@ -14,8 +14,14 @@ hl.bind(mainMod .. " + B", hl.dsp.exec_cmd([[grim -g "$(slurp -p)" -t ppm - | ma
 -- OS shortcuts.
 hl.bind(mainMod .. " + A", hl.dsp.window.close())
 hl.bind(mainMod .. " + Z", hl.dsp.window.fullscreen())
-hl.bind(mainMod .. " + DELETE", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mainMod .. " + INSERT", hl.dsp.exec_cmd("hyprlock"))
+
+-- Power shortcuts.
+hl.bind(mainMod .. " + INSERT", hl.dsp.exec_cmd("cvlc ~/.config/quickshell/sounds/cats/$(($RANDOM%8)).mp3"))
+hl.bind(mainMod .. " + HOME", hl.dsp.exec_cmd("hyprctl eval 'hl.dispatch(hl.dsp.exec_cmd(\"hyprshutdown -t \\\"Shutting down...\\\" -p \\\"shutdown now\\\"\"))'"))
+hl.bind(mainMod .. " + PRIOR", hl.dsp.exec_cmd("hyprctl eval 'hl.dispatch(hl.dsp.exec_cmd(\"hyprshutdown -t \\\"Rebooting...\\\" -p \\\"reboot\\\"\"))'"))
+hl.bind(mainMod .. " + DELETE", hl.dsp.exec_cmd("systemctl suspend"))
+hl.bind(mainMod .. " + END", hl.dsp.exec_cmd("pidof hyprlock || hyprlock"))
+hl.bind(mainMod .. " + NEXT", hl.dsp.exec_cmd("hyprctl eval 'hl.dispatch(hl.dsp.exec_cmd(\"hyprshutdown -t \\\"Logging out...\\\"\"))'"))
 
 -- Window operations.
 -- hl.bind(mainMod .. " + Q", hl.dsp.window.pseudo())
