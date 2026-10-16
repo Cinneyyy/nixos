@@ -243,7 +243,6 @@
                     enable = true;
                     lsp.servers = [
                         "roslyn-ls"
-                        # "omnisharp"
                     ];
                     extensions = {
                         roslyn-nvim = {
@@ -262,7 +261,6 @@
                                 };
                             };
                         };
-                        # omnisharp-extended-lsp-nvim.enable = true;
                     };
                 };
                 nix = {
@@ -322,16 +320,6 @@
                     },
                 })
             '';
-            # luaConfigPost = ''
-            #     -- Enable type completion for unimported namespaces (omnisharp).
-            #     vim.lsp.config("omnisharp", {
-            #         settings = {
-            #             RoslynExtensionsOptions = {
-            #                 EnableImportCompletion = true,
-            #             },
-            #         },
-            #     })
-            # '';
         };
     };
 }
