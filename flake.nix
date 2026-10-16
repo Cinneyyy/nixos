@@ -3,6 +3,7 @@
 
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+        nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
         home-manager = {
             url = "github:nix-community/home-manager/release-26.05";
@@ -15,7 +16,15 @@
         };
     };
 
-    outputs = { nixpkgs, home-manager, nvf, ... }: {
+    outputs = { nixpkgs, nixpkgs-unstable, home-manager, nvf, ... }:
+    let
+        roslynOverlay = final: prev: {
+            roslyn-ls = (import nixpkgs-unstable {
+                system = prev.stdenv.hostPlatform.system;
+            }).roslyn-ls;
+        };
+    in
+    {
         nixosConfigurations = {
             pc = nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
@@ -28,6 +37,11 @@
                                 nvf.homeManagerModules.default
                             ];
                         };
+                    }
+                    {
+                        nixpkgs.overlays = [
+                            roslynOverlay
+                        ];
                     }
                 ];
             };
@@ -42,6 +56,11 @@
                                 nvf.homeManagerModules.default
                             ];
                         };
+                    }
+                    {
+                        nixpkgs.overlays = [
+                            roslynOverlay
+                        ];
                     }
                 ];
             };

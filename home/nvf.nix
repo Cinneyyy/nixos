@@ -248,10 +248,11 @@
                         roslyn-nvim = {
                             enable = true;
                             setupOpts = {
-                                broad_search = false;
+                                broad_search = true;
+                                filewatching = "roslyn";
                                 background_analysis = {
-                                    dotnet_analyzer_diagnostics_scope = "openFiles";
-                                    dotnet_compiler_diagnostics_scope = "openFiles";
+                                    dotnet_analyzer_diagnostics_scope = "fullSolution";
+                                    dotnet_compiler_diagnostics_scope = "fullSolution";
                                 };
                                 code_lens.dotnet_enable_references_code_lens = true;
                                 completion = {
@@ -317,6 +318,7 @@
                     cmd = {
                         "Microsoft.CodeAnalysis.LanguageServer",
                         "--stdio",
+                        "--autoLoadProjects",
                     },
                 })
             '';
