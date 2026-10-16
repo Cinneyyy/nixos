@@ -189,13 +189,13 @@
                             lua = 210,
                         },
                         highlight = {
-                            "RainbowDelimiterRed",
                             "RainbowDelimiterYellow",
                             "RainbowDelimiterBlue",
                             "RainbowDelimiterOrange",
                             "RainbowDelimiterGreen",
                             "RainbowDelimiterViolet",
                             "RainbowDelimiterCyan",
+                            "RainbowDelimiterRed",
                         },
                     }
                 '';
@@ -243,22 +243,26 @@
                     enable = true;
                     lsp.servers = [
                         "roslyn-ls"
+                        # "omnisharp"
                     ];
-                    extensions.roslyn-nvim = {
-                        enable = true;
-                        setupOpts = {
-                            broad_search = false;
-                            background_analysis = {
-                                dotnet_analyzer_diagnostics_scope = "fullSolution";
-                                dotnet_compiler_diagnostics_scope = "fullSolution";
-                            };
-                            code_lens.dotnet_enable_references_code_lens = true;
-                            completion = {
-                                dotnet_provide_regex_completions = true;
-                                dotnet_show_completion_items_from_unimported_namespaces = true;
-                                dotnet_show_name_completion_suggestions = true;
+                    extensions = {
+                        roslyn-nvim = {
+                            enable = true;
+                            setupOpts = {
+                                broad_search = false;
+                                background_analysis = {
+                                    dotnet_analyzer_diagnostics_scope = "openFiles";
+                                    dotnet_compiler_diagnostics_scope = "openFiles";
+                                };
+                                code_lens.dotnet_enable_references_code_lens = true;
+                                completion = {
+                                    dotnet_provide_regex_completions = true;
+                                    dotnet_show_completion_items_from_unimported_namespaces = true;
+                                    dotnet_show_name_completion_suggestions = true;
+                                };
                             };
                         };
+                        # omnisharp-extended-lsp-nvim.enable = true;
                     };
                 };
                 nix = {
@@ -318,6 +322,16 @@
                     },
                 })
             '';
+            # luaConfigPost = ''
+            #     -- Enable type completion for unimported namespaces (omnisharp).
+            #     vim.lsp.config("omnisharp", {
+            #         settings = {
+            #             RoslynExtensionsOptions = {
+            #                 EnableImportCompletion = true,
+            #             },
+            #         },
+            #     })
+            # '';
         };
     };
 }
