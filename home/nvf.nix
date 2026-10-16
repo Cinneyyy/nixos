@@ -107,10 +107,10 @@
             # Random color scheme.
             luaConfigRC.colorScheme = ''
                 local colorSchemes = {
+                    -- "industry",
                     "catppuccin",
                     "darkblue",
                     "elflord",
-                    "industry",
                     "lunaperche",
                     "koehler",
                     "murphy",
@@ -118,10 +118,10 @@
                     "retrobox",
                     "ron",
                     "slate",
-                    "sorbet",
                     "vim",
                     "wildcharm",
                     "zaibatsu",
+                    "sorbet",
                 };
 
                 math.randomseed(os.time())
@@ -229,7 +229,7 @@
                         appearance.nerd_font_variant = "mono";
                         completion = {
                             auto_show = true;
-                            auto_show_delay_ms = 200;
+                            auto_show_delay_ms = 10;
                         };
                         fuzzy.implementation = "lua";
                         signature.enabled = true;

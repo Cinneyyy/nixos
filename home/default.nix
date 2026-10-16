@@ -12,10 +12,11 @@
         ./kitty.nix
         ./hyprland.nix
         ./nvf.nix
-        # ./neovim.nix
 
         ./protonvpn.nix
         ./qbittorrent.nix
+
+        ./sdl3.nix
     ];
 
     home = {
