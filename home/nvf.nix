@@ -83,6 +83,9 @@
                 # Undo file.
                 undofile = true;
 
+                # No swap file.
+                swapfile = false;
+
                 # Show tabs, trailing whitespace, and nbsp.
                 list = true;
                 listchars = {
@@ -227,10 +230,7 @@
                             "<c-s>" = ["show_signature" "hide_signature" "fallback"];
                         };
                         appearance.nerd_font_variant = "mono";
-                        completion = {
-                            auto_show = true;
-                            auto_show_delay_ms = 10;
-                        };
+                        completion.auto_show = true;
                         fuzzy.implementation = "lua";
                         signature.enabled = true;
                     };
