@@ -1,12 +1,14 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
     programs.kitty = {
         enable = true;
         settings = {
-            scrollback_lines = 5000;
+            scrollback_lines = 10000;
             tab_bar_edge = "top";
             tab_bar_style = "slant";
+            allow_remote_control = "socket-only";
+            listen_on = "unix:/tmp/kitty";
         };
         keybindings = {
             "ctrl+shift+l" = "next_tab";
@@ -20,7 +22,13 @@
             "alt+7" = "goto_tab 7";
             "alt+8" = "goto_tab 8";
             "alt+9" = "goto_tab 9";
+            "ctrl+shift+f" = "kitty_scrollback_nvim";
         };
         themeFile = "Cyberpunk-Neon";
+        extraConfig = ''
+            action_alias kitty_scrollback_nvim kitten ${
+                pkgs.vimPlugins.kitty-scrollback-nvim
+            }/python/kitty_scrollback_nvim.py
+        '';
     };
 }

@@ -110,7 +110,6 @@
             # Random color scheme.
             luaConfigRC.colorScheme = ''
                 local colorSchemes = {
-                    -- "industry",
                     "catppuccin",
                     "darkblue",
                     "elflord",
@@ -158,6 +157,7 @@
             startPlugins = with pkgs.vimPlugins; [
                 indent-blankline-nvim
                 rainbow-delimiters-nvim
+                kitty-scrollback-nvim
             ];
             luaConfigRC = {
                 telescope = ''
@@ -201,6 +201,10 @@
                             "RainbowDelimiterRed",
                         },
                     }
+                '';
+
+                kitty-scrollback = ''
+                    require("kitty-scrollback").setup()
                 '';
             };
             lsp = {

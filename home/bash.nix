@@ -13,6 +13,8 @@
             nv = "nvim .";
             cloc = "cloc .";
             ff = "fastfetch";
+
+            bashh = "nvim ~/.bash_history";
         };
         initExtra = ''
             ffmeta() {
