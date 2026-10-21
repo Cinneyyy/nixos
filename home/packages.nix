@@ -17,6 +17,8 @@
         alsa-utils
         keyd
         imagemagick
+        zoxide
+        fzf
 
         # Chat
         discord

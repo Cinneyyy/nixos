@@ -11,12 +11,14 @@
             push = "git push -u";
 
             nv = "nvim .";
+            bashh = "nvim ~/.bash_history";
             cloc = "cloc .";
             ff = "fastfetch";
-
-            bashh = "nvim ~/.bash_history";
+            c = "z";
         };
         initExtra = ''
+            eval "$(zoxide init bash)"
+
             ffmeta() {
                 ffmpeg -i "$1" -c copy -metadata title="$2" -metadata comment="" "$3"
             }
