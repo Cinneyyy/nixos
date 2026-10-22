@@ -234,7 +234,6 @@
                             "<c-s>" = ["show_signature" "hide_signature" "fallback"];
                         };
                         appearance.nerd_font_variant = "mono";
-                        completion.auto_show = true;
                         fuzzy.implementation = "lua";
                         signature.enabled = true;
                     };

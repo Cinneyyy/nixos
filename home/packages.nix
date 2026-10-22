@@ -36,6 +36,7 @@
         nautilus
         pcmanfm
         eog
+        libreoffice
 
         # Games
         prismlauncher

@@ -16,6 +16,9 @@
             ff = "fastfetch";
             c = "z";
             tr = "trash";
+
+            dnr = "dotnet run";
+            dnb = "dotnet build";
         };
         initExtra = ''
             eval "$(zoxide init bash)"
