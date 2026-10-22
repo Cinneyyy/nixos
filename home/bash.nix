@@ -15,6 +15,7 @@
             cloc = "cloc .";
             ff = "fastfetch";
             c = "z";
+            tr = "trash";
         };
         initExtra = ''
             eval "$(zoxide init bash)"

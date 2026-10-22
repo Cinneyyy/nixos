@@ -1,15 +1,19 @@
-{ pkgs, ... }:
+_:
 
 {
     nixpkgs.config.allowUnfree = true;
 
-    environment.systemPackages = with pkgs; [
-        vim
-    ];
+    programs = {
+        vim.enable = true;
 
-    programs.firefox.enable = true;
+        firefox.enable = true;
 
-    # Cannot be installed via home.packages
-    programs.steam.enable = true;
-    programs.gamemode.enable = true;
+        steam.enable = true;
+        gamemode.enable = true;
+
+        ausweisapp = {
+            enable = true;
+            openFirewall = true;
+        };
+    };
 }

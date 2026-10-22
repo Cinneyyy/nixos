@@ -19,6 +19,8 @@
         imagemagick
         zoxide
         fzf
+        trash-cli
+        obs-studio
 
         # Chat
         discord
@@ -33,7 +35,6 @@
         gnome-system-monitor
         nautilus
         pcmanfm
-        ausweisapp
         eog
 
         # Games
