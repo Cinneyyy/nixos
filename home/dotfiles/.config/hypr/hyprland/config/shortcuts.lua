@@ -180,6 +180,6 @@ local programShortcuts = {
 }
 
 for _, sh in ipairs(programShortcuts) do
-    hl.bind(mainMod .. " + ALT + " .. sh[1], hl.dsp.exec_cmd(sh[2]))
+    hl.bind(mainMod .. " + SHIFT + " .. sh[1], hl.dsp.exec_cmd(sh[2]))
     hl.bind(mainMod .. " + " .. sh[1], function() focus(sh[2], #sh == 3 and sh[3] or sh[2]) end)
 end

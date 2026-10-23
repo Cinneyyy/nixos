@@ -1,3 +1,5 @@
+-- numMonitors is defined in the host file importing hyprland.lua
+
 local function getMonitor(workspace)
     if workspace == 1 or numMonitors == 1 then
         return 0
@@ -36,12 +38,6 @@ end)
 -- 3: x (bitwarden, whatsapp, signal)
 -- 4: misc
 
-hl.window_rule({
-    match = {
-        class = ".*(kitty|firefox).*",
-    },
-    workspace = "1",
-})
 hl.window_rule({
     match = {
         class = ".*(discord|steam).*",
