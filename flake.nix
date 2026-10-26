@@ -14,14 +14,19 @@
             url = "github:notashelf/nvf";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        steam-config = {
+            url = "github:different-name/steam-config-nix";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
-    outputs = { nixpkgs, nixpkgs-unstable, home-manager, nvf, ... }:
+    outputs = { nixpkgs, nixpkgs-unstable, home-manager, nvf, steam-config, ... }:
     let
-        roslynOverlay = final: prev: {
-            roslyn-ls = (import nixpkgs-unstable {
+        roslynOverlay = _: prev: {
+            inherit (import nixpkgs-unstable {
                 system = prev.stdenv.hostPlatform.system;
-            }).roslyn-ls;
+            }) roslyn-ls;
         };
     in
     {
@@ -35,6 +40,7 @@
                             users.colin = import ./hosts/pc/home.nix;
                             sharedModules = [
                                 nvf.homeManagerModules.default
+                                steam-config.homeModules.default
                             ];
                         };
                     }
@@ -54,6 +60,7 @@
                             users.colin = import ./hosts/laptop/home.nix;
                             sharedModules = [
                                 nvf.homeManagerModules.default
+                                steam-config.homeModules.default
                             ];
                         };
                     }
