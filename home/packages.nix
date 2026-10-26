@@ -40,6 +40,7 @@
         eog
         libreoffice
         drawy
+        localsend
 
         # Games
         prismlauncher
@@ -49,5 +50,6 @@
         dotnetCorePackages.sdk_10_0
         gcc
         cmake
+        zig
     ];
 }
