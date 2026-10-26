@@ -12,7 +12,7 @@ local function getIsDefault(workspace, monitor)
     return workspace-1 == monitor
 end
 
-local numWorkspaces = 4
+local numWorkspaces = 5
 for i = 1, numWorkspaces do
     local monitor = getMonitor(i)
     local isDefault = getIsDefault(i, monitor)
@@ -35,8 +35,9 @@ end)
 -- #: name (autostart)
 -- 1: primary (kitty, firefox)
 -- 2: secondary (discord, steam)
--- 3: x (bitwarden, whatsapp, signal)
--- 4: misc
+-- 3: messaging (whatsapp, signal)
+-- 4: misc (bitwarden)
+-- 5: misc
 
 hl.window_rule({
     match = {
@@ -53,9 +54,16 @@ hl.window_rule({
 })
 hl.window_rule({
     match = {
-        class = ".*(bitwarden|whatsapp|signal).*",
+        class = ".*(whatsapp|signal).*",
     },
     workspace = "3",
+    no_initial_focus = true
+})
+hl.window_rule({
+    match = {
+        class = ".*bitwarden.*",
+    },
+    workspace = "4",
     no_initial_focus = true
 })
 
