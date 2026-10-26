@@ -34,8 +34,8 @@
                 kpslash = "volumedown"; # volume+
                 kpasterisk = "volumeup"; # volume-
                 kpminus = "mute"; # mute
-                kpplus = "leftmeta"; # microphone
-                kp7 = "leftshift"; # 10x
+                kpplus = "layer(meta)"; # microphone
+                kp7 = "layer(shift)"; # 10x
 
                 # Media controls
                 kp1 = "play";

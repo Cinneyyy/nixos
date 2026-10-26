@@ -41,6 +41,7 @@
         libreoffice
         drawy
         localsend
+        thunderbird
 
         # Games
         prismlauncher
