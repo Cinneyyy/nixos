@@ -37,6 +37,7 @@
         pcmanfm
         eog
         libreoffice
+        localsend
 
         # Games
         prismlauncher
