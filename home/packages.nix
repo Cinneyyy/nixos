@@ -44,6 +44,9 @@
 
         # Games
         prismlauncher
+        dwarf-fortress
+        mindustry
+        supertuxkart
 
         # Dev
         python3
