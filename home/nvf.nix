@@ -314,6 +314,10 @@
                 qml = {
                     enable = true;
                 };
+                zig = {
+                    enable = true;
+                    dap.enable = true;
+                };
             };
             luaConfigPost = ''
                 -- Disable roslyn "daemon-mode".
