@@ -21,6 +21,8 @@
         fzf
         trash-cli
         obs-studio
+        #pay-respects
+        superfile
 
         # Chat
         discord
@@ -37,6 +39,7 @@
         pcmanfm
         eog
         libreoffice
+        drawy
 
         # Games
         prismlauncher

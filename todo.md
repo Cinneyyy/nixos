@@ -5,8 +5,7 @@
 - screenshots that freeze the screen (hyprcapture?)
 - declarative configs for steam (!!), whatsapp, discord, firefox/browser, signal
 - kitty fancy autocompletion
-- hyprsunset
-- fix c and quickshell ls
+- fix c and quickshell lsp
 
 # Quickshell
 - document all shortcuts / actions
@@ -27,3 +26,5 @@
 - rename accentPrimary to accent
 - close status bar menus when clicking elsewhere
 - weird workspace module behaviour when switching from an empty workspace
+- make wifi password copyable
+- only show workspaces on the monitor theyre on

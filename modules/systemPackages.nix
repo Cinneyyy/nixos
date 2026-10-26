@@ -15,5 +15,10 @@ _:
             enable = true;
             openFirewall = true;
         };
+
+        localsend = {
+            enable = true;
+            openFirewall = true;
+        };
     };
 }

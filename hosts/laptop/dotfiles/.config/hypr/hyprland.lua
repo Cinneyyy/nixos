@@ -1,4 +1,4 @@
-local monitorScale = 1.25
+local monitorScale = 1.20
 
 hl.monitor({
     output = "eDP-1",
@@ -18,8 +18,3 @@ hl.config({
 hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("hyprlock"), { locked = true, })
 
 require("hyprland/hyprland")
-
--- local div = math.floor(100 * monitorScale)
--- hl.on("hyprland.start", function ()
---     hl.exec_cmd("qs ipc call volumeMixer setX $(( $(qs ipc call volumeMixer getX) * 100 / " .. monitorScale .. " ))")
--- end)
