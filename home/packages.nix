@@ -46,5 +46,6 @@
         dotnetCorePackages.sdk_10_0
         gcc
         cmake
+        zig
     ];
 }
