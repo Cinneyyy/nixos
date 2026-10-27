@@ -13,8 +13,9 @@
                 { mode = "v"; key = "<c-j>"; action = ":m '>+1<cr>gv=gv"; }
                 { mode = "v"; key = "<c-k>"; action = ":m '<-2<cr>gv=gv"; }
 
-                # Open terminal.
+                # Open and navigate terminal.
                 { mode = "n"; key = "<c-t>"; action = ":term<cr>i"; }
+                { mode = "t"; key = "<esc>"; action = "<c-\\><c-n>"; }
 
                 # Duplicate line.
                 { mode = "n"; key = "<c-e>"; action = ":co.<cr>"; }

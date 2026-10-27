@@ -23,6 +23,7 @@
         obs-studio
         #pay-respects
         superfile
+        wget
 
         # Chat
         discord
@@ -42,6 +43,7 @@
         drawy
         localsend
         thunderbird
+        rpi-imager
 
         # Games
         prismlauncher
