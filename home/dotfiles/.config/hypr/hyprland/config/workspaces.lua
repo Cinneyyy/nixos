@@ -12,7 +12,7 @@ local function getIsDefault(workspace, monitor)
     return workspace-1 == monitor
 end
 
-local numWorkspaces = 5
+local numWorkspaces = 4
 for i = 1, numWorkspaces do
     local monitor = getMonitor(i)
     local isDefault = getIsDefault(i, monitor)
@@ -37,7 +37,6 @@ end)
 -- 2: secondary (discord, steam)
 -- 3: messaging (whatsapp, signal)
 -- 4: misc (bitwarden)
--- 5: misc
 
 hl.window_rule({
     match = {
