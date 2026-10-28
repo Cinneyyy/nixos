@@ -305,7 +305,7 @@
                     extraDiagnostics.enable = true;
                 };
                 markdown = {
-                    enable = true;
+                    enable = false;
                     extraDiagnostics.enable = true;
                     extensions.markview-nvim = {
                         enable = true;
