@@ -24,6 +24,7 @@
         #pay-respects
         superfile
         wget
+        dig
 
         # Chat
         discord
@@ -44,6 +45,7 @@
         localsend
         thunderbird
         rpi-imager
+        fluffychat
 
         # Games
         prismlauncher
