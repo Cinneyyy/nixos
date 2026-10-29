@@ -1,5 +1,9 @@
 { pkgs, ... }:
-
+let
+    gitPkg = pkgs.git.override {
+        withLibsecret = true;
+    };
+in
 {
     home.packages = with pkgs; [
         gcr
@@ -9,15 +13,13 @@
 
     programs.git = {
         enable = true;
-        package = pkgs.git.override {
-            withLibsecret = true;
-        };
+        package = gitPkg;
         settings = {
             user = {
                 email = "cinneyyy@proton.me";
                 name = "Cinneyyy";
             };
-            credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
+            credential.helper = "${gitPkg}/bin/git-credential-libsecret";
             init.defaultBranch = "main";
             push.autoSetupRemote = true;
             pull.rebase = false;

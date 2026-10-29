@@ -1,13 +1,14 @@
-{ ... }:
+_:
 
 {
     programs.ssh = {
         enable = true;
         enableDefaultConfig = false;
         settings."pi" = {
-            Hostname = "192.168.2.100";
-            User = "cinneyyy";
+            Hostname = "pi.colin.monster";
+            User = "pi";
             Port = 22;
+            IdentitiesOnly = "yes";
         };
     };
 }

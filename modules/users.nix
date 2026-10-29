@@ -4,7 +4,10 @@
     users.users."colin" = {
         isNormalUser = true;
         description = "colin";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = [
+            "networkmanager"
+            "wheel"
+        ];
     };
 
     home-manager = {
