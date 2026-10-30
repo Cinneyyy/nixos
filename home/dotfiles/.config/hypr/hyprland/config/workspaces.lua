@@ -27,8 +27,7 @@ end
 
 hl.on("hyprland.start", function ()
     for i = numMonitors, 1, -1 do
-        hl.exec_cmd(
-            "hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = '" .. tostring(i) .. ", }))'")
+        hl.exec_cmd("hyprctl eval 'hl.dispatch(hl.dsp.focus({ workspace = '" .. tostring(i) .. ", }))'")
     end
 end)
 

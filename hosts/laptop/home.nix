@@ -13,6 +13,7 @@
     };
 
     programs.ssh.settings."pi".IdentityFile = "~/.ssh/laptop-to-pi";
+    programs.ssh.settings."pi.colin.monster".IdentityFile = "~/.ssh/laptop-to-pi";
 
     home.file.".config/hypr/hyprland.lua".source = ./dotfiles/.config/hypr/hyprland.lua;
 

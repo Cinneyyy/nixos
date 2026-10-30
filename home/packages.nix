@@ -25,6 +25,7 @@
         superfile
         wget
         dig
+        netcat
 
         # Chat
         discord
