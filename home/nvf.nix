@@ -319,6 +319,10 @@
                     enable = true;
                     dap.enable = true;
                 };
+                java = {
+                    enable = true;
+                    dap.enable = true;
+                };
             };
             luaConfigPost = ''
                 -- Disable roslyn "daemon-mode".
