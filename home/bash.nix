@@ -22,7 +22,6 @@
         };
         initExtra = ''
             eval "$(zoxide init bash)"
-            #eval "$(pay-respects bash)"
 
             ffmeta() {
                 ffmpeg -i "$1" -c copy -metadata title="$2" -metadata comment="" "$3"

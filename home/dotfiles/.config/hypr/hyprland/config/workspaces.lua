@@ -59,7 +59,7 @@ hl.window_rule({
 })
 hl.window_rule({
     match = {
-        class = ".*bitwarden.*",
+        class = ".*(bitwarden|fluffychat).*",
     },
     workspace = "4",
     no_initial_focus = true

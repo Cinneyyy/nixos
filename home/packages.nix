@@ -21,7 +21,6 @@
         fzf
         trash-cli
         obs-studio
-        #pay-respects
         superfile
         wget
         dig
@@ -31,6 +30,8 @@
         discord
         signal-desktop
         whatsapp-electron
+        cinny-desktop
+        fluffychat
 
         # GUI Utils
         vlc
@@ -45,8 +46,6 @@
         drawy
         localsend
         thunderbird
-        rpi-imager
-        fluffychat
 
         # Games
         prismlauncher
