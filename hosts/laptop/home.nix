@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
     imports = [
         ./../../home
@@ -8,12 +8,14 @@
         brightnessctl
     ];
 
-    programs.bash.shellAliases = {
-        nrs = "sudo nixos-rebuild switch --flake ~/nixos#laptop";
-    };
+    programs = {
+        bash.shellAliases.nrs = "sudo nixos-rebuild switch --flake ~/nixos#laptop";
 
-    programs.ssh.settings."pi".IdentityFile = "~/.ssh/laptop-to-pi";
-    programs.ssh.settings."pi.colin.monster".IdentityFile = "~/.ssh/laptop-to-pi";
+        ssh.settings = {
+            "pi".IdentityFile = "~/.ssh/laptop-to-pi";
+            "pi.colin.monster".IdentityFile = "~/.ssh/laptop-to-pi";
+        };
+    };
 
     home.file.".config/hypr/hyprland.lua".source = ./dotfiles/.config/hypr/hyprland.lua;
 
@@ -31,17 +33,17 @@
             };
             listener = [
                 {
-                    timeout = 600;
+                    timeout = 900;
                     on-timeout = "brightnessctl -s set 10";
                     on-resume = "brightnessctl -r";
                 }
                 # {
-                #     timeout = 630;
+                #     timeout = 300;
                 #     on-timeout = "hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'";
                 #     on-resume = "hyprctl dispatch 'hl.dsp.dpms({ action = \"enable\" })'";
                 # }
                 {
-                    timeout = 630;
+                    timeout = 930;
                     on-timeout = "systemctl suspend";
                 }
             ];
