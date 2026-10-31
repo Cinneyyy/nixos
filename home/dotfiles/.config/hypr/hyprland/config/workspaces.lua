@@ -52,14 +52,14 @@ hl.window_rule({
 })
 hl.window_rule({
     match = {
-        class = ".*(whatsapp|signal).*",
+        class = ".*(whatsapp|signal|fluffychat).*",
     },
     workspace = "3",
     no_initial_focus = true
 })
 hl.window_rule({
     match = {
-        class = ".*(bitwarden|fluffychat).*",
+        class = ".*bitwarden.*",
     },
     workspace = "4",
     no_initial_focus = true
