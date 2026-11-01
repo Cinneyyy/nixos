@@ -5,12 +5,18 @@ _:
         enable = true;
         historyFileSize = 100000;
         shellAliases = {
-            ll = "ls -lahp";
-            la = "ls -ap";
-            ls = "ls -p";
+            ls = "ls --color -p";
+            la = "ls --color -pa";
+            ll = "ls --color -palh";
 
-            commit = "git add . && git commit -m";
-            push = "git push -u";
+            gadd = "git add .";
+            gcommit = "git add . && git commit -m";
+            gpush = "git push -u";
+            gpull = "git pull";
+            gfetch = "git fetch";
+            gstatus = "git status";
+            gdiff = "git diff";
+            gclone = "git clone";
 
             nv = "nvim .";
             bashh = "nvim ~/.bash_history";

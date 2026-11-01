@@ -6,6 +6,7 @@
 - declarative configs for steam (!!), whatsapp, discord, firefox/browser, signal
 - kitty fancy autocompletion
 - fix c and quickshell lsp
+- dev shells
 
 # Quickshell
 - document all shortcuts / actions

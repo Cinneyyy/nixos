@@ -211,7 +211,7 @@
             lsp = {
                 enable = true;
                 mappings = {
-                    renameSymbol = "gr";
+                    renameSymbol = "grn";
                     codeAction = "gc";
                     goToDefinition = "gd";
                     goToDeclaration = "gD";
@@ -219,6 +219,7 @@
                     openDiagnosticFloat = "go";
                     nextDiagnostic = "gn";
                     previousDiagnostic = "gp";
+                    listReferences = "grr";
                 };
             };
             autocomplete = {
@@ -237,6 +238,10 @@
                         appearance.nerd_font_variant = "mono";
                         fuzzy.implementation = "lua";
                         signature.enabled = true;
+                        completion = {
+                            documentation.auto_show = true;
+                            menu.auto_show = true;
+                        };
                     };
                 };
             };
