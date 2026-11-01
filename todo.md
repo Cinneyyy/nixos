@@ -7,6 +7,7 @@
 - kitty fancy autocompletion
 - fix c and quickshell lsp
 - dev shells
+- organize packages
 
 # Quickshell
 - document all shortcuts / actions
