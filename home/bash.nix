@@ -31,6 +31,10 @@ _:
             ffmeta() {
                 ffmpeg -i "$1" -c copy -metadata title="$2" -metadata comment="" "$3"
             }
+
+            mgd() {
+                mkdir "$1" && cd "$1"
+            }
         '' + "\n"
         + (builtins.readFile ./dotfiles/bash/zoxide.sh) + "\n"
         + (builtins.readFile ./dotfiles/bash/cd-stack.sh);

@@ -8,9 +8,22 @@ CD_STACK_MAX=${CD_STACK_MAX:-15}
 _CD_STACK=("$PWD")
 _CD_STACK_PTR=0
 
+ls-post-cd() {
+    local __CD_LS_MAX_ITEMS=24
+    local __CD_LS_COUNT
+    __CD_LS_COUNT=$(ls -a | wc -l)
+    if [[ $__CD_LS_COUNT -lt $__CD_LS_MAX_ITEMS ]]; then
+        ls --color -pa
+    else
+        echo "(from cd-ls) too many items in directory: $__CD_LS_COUNT."
+    fi
+}
+
 cd() {
     #builtin cd "$@" || return
     z "$@" # zoxide version
+    ls-post-cd
+
     local ret=$?
     ((ret == 0)) || return "$ret"
 
@@ -31,6 +44,7 @@ s() {
         if ((ret == 0)) && [[ -n $dir ]]; then
             _CD_STACK_PTR=$1
         fi
+        ls-post-cd
         return "$ret"
     fi
 
@@ -51,5 +65,4 @@ s() {
 
 b() {
     s "$((_CD_STACK_PTR + 1))"
-
 }

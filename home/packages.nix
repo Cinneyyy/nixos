@@ -46,6 +46,7 @@
         drawy
         localsend
         thunderbird
+        kdePackages.kolourpaint
 
         # Games
         prismlauncher

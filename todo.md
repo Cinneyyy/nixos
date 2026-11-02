@@ -8,6 +8,7 @@
 - fix c and quickshell lsp
 - dev shells
 - organize packages
+- switch matrix client
 
 # Quickshell
 - document all shortcuts / actions

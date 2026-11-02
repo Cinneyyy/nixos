@@ -21,7 +21,14 @@
         };
     };
 
-    outputs = { nixpkgs, nixpkgs-unstable, home-manager, nvf, steam-config, ... }:
+    outputs = {
+        nixpkgs,
+        nixpkgs-unstable,
+        home-manager,
+        nvf,
+        steam-config,
+        ...
+    }:
     let
         roslynOverlay = _: prev: {
             inherit (import nixpkgs-unstable {
