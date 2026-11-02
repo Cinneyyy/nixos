@@ -6,8 +6,8 @@ _:
         historyFileSize = 100000;
         shellAliases = {
             ls = "ls --color -p";
-            la = "ls --color -pa";
-            ll = "ls --color -palh";
+            la = "ls --color -pA";
+            ll = "ls --color -pAlh";
 
             gadd = "git add .";
             gcommit = "git add . && git commit -m";

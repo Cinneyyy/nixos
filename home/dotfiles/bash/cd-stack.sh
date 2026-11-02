@@ -1,31 +1,39 @@
 #!/usr/bin/env bash
 
-# From https://github.com/bahamas10/bash-cdstack/
+# Modified script from https://github.com/bahamas10/bash-cdstack/
 
 CD_STACK_MAX=${CD_STACK_MAX:-15}
-#CD_STACK_REVERSE=   set by environment
 
 _CD_STACK=("$PWD")
 _CD_STACK_PTR=0
 
 ls-post-cd() {
-    local __CD_LS_MAX_ITEMS=24
-    local __CD_LS_COUNT
-    __CD_LS_COUNT=$(ls -a | wc -l)
-    if [[ $__CD_LS_COUNT -lt $__CD_LS_MAX_ITEMS ]]; then
-        ls --color -pa
+    local max_items=24
+
+    local ls_item_count
+    ls_item_count=$(ls -A | wc -l)
+
+    if [[ $ls_item_count -lt $max_items ]]; then
+        ls --color -pA
     else
-        echo "(from cd-ls) too many items in directory: $__CD_LS_COUNT."
+        local ls_new_item_count=$(ls | wc -l)
+        if [[ $ls_new_item_count -lt $max_items ]]; then
+            ls --color -p
+            echo "(from cd-ls) showing only $ls_new_item_count non-hidden out of $ls_item_count total."
+        else
+            echo "(from cd-ls) too many items in directory: $ls_item_count."
+        fi
     fi
 }
 
 cd() {
     #builtin cd "$@" || return
     z "$@" # zoxide version
-    ls-post-cd
 
     local ret=$?
     ((ret == 0)) || return "$ret"
+
+    ls-post-cd
 
     _CD_STACK=("$PWD" "${_CD_STACK[@]}")
     if ((${#_CD_STACK[@]} > CD_STACK_MAX)); then
@@ -50,7 +58,8 @@ s() {
 
     local max=${#_CD_STACK[@]}
     local i
-    local arrow="$(tput setaf 2)->$(tput sgr0)"
+    local arrow
+    arrow="$(tput setaf 2)->$(tput sgr0)"
     for ((i = 0; i < max; i++)); do
         local j=$i
         [[ -n $CD_STACK_REVERSE ]] && j=$((max - 1 -i))
@@ -65,4 +74,8 @@ s() {
 
 b() {
     s "$((_CD_STACK_PTR + 1))"
+}
+
+f() {
+    s "$((_CD_STACK_PTR - 1))"
 }
