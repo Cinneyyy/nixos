@@ -38,6 +38,10 @@
                 { mode = "n"; key = "<right>"; action = ":echo 'No, fuck you.'<cr>"; }
                 { mode = "n"; key = "<up>"; action = ":echo 'No, fuck you.'<cr>"; }
                 { mode = "n"; key = "<down>"; action = ":echo 'No, fuck you.'<cr>"; }
+
+                # Markup previews.
+                { mode = "n"; key = "tm"; action = ":Markview<cr>"; }
+                { mode = "n"; key = "tt"; action = ":TypstPreview<cr>"; }
             ];
             autocmds = [
                 # Hightlight on yank.
@@ -159,6 +163,7 @@
                 indent-blankline-nvim
                 rainbow-delimiters-nvim
                 kitty-scrollback-nvim
+                calendar-vim
             ];
             luaConfigRC = {
                 telescope = ''
@@ -310,8 +315,8 @@
                     extraDiagnostics.enable = true;
                 };
                 markdown = {
-                    enable = false;
-                    extraDiagnostics.enable = true;
+                    enable = true;
+                    extraDiagnostics.enable = false;
                     extensions.markview-nvim = {
                         enable = true;
                         setupOpts.preview.enable = false;
@@ -327,6 +332,19 @@
                 java = {
                     enable = true;
                     dap.enable = true;
+                };
+                typst = {
+                    enable = true;
+                    extensions.typst-concealer = {
+                        enable = true;
+                        setupOpts = {
+                            enabled_by_default = false;
+                            conceal_in_normal = false;
+                            do_diagnostics = true;
+                            ppi = 144;
+                            styling_type = "colorscheme";
+                        };
+                    };
                 };
             };
             luaConfigPost = ''

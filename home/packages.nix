@@ -25,6 +25,8 @@
         wget
         dig
         netcat
+        typst
+        calendar-cli
 
         # Chat
         discord
