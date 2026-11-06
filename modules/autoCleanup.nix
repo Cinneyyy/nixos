@@ -1,9 +1,9 @@
-{ ... }:
+_:
 
 {
     system.autoUpgrade = {
         enable = true;
-        flake = "~/nixos";
+        flake = "/home/colin/nixos";
         flags = [
             "--print-build-logs"
             "--commit-log-file"
@@ -13,9 +13,9 @@
 
     systemd.services.nixos-upgrade.environment = {
         GIT_AUTHOR_NAME = "NixOS auto-upgrade";
-        GIT_AUTHOR_EMAIL = "root@nix";
+        GIT_AUTHOR_EMAIL = "root@nix.os";
         GIT_COMMITER_NAME = "NixOS auto-upgrade";
-        GIT_COMMITER_EMAIL = "root@nix";
+        GIT_COMMITER_EMAIL = "root@nix.os";
     };
 
     nix.settings.auto-optimise-store = true;

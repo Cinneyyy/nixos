@@ -67,5 +67,6 @@
         ])
         python3
         zig
+        openjdk25
     ];
 }
