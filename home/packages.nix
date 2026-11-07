@@ -21,19 +21,14 @@
         fzf
         trash-cli
         obs-studio
-        superfile
-        wget
         dig
-        netcat
         typst
-        calendar-cli
 
         # Chat
         discord
         signal-desktop
         whatsapp-electron
         cinny-desktop
-        fluffychat
 
         # GUI Utils
         vlc
@@ -55,6 +50,7 @@
         dwarf-fortress
         mindustry
         supertuxkart
+        benhsm-minesweeper
 
         # Dev
         gcc

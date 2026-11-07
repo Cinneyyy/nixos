@@ -56,6 +56,21 @@
                     '';
                 }
 
+                # Set tab to 4 spaces regardless of file type.
+                {
+                    event = [
+                        "FileType"
+                    ];
+                    callback = lib.mkLuaInline ''
+                        function ()
+                            vim.opt_local.expandtab = true
+                            vim.opt_local.tabstop = 4
+                            vim.opt_local.shiftwidth = 4
+                            vim.opt_local.softtabstop = 4
+                        end
+                    '';
+                }
+
                 # Disable treesitter indentation for C#.
                 {
                     event = [

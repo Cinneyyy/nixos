@@ -15,14 +15,6 @@ hl.bind(mainMod .. " + B", hl.dsp.exec_cmd([[grim -g "$(slurp -p)" -t ppm - | ma
 hl.bind(mainMod .. " + A", hl.dsp.window.close())
 hl.bind(mainMod .. " + Z", hl.dsp.window.fullscreen())
 
--- Power shortcuts.
-hl.bind(mainMod .. " + INSERT", hl.dsp.exec_cmd([[cvlc ~/.config/quickshell/sounds/cats/$(($RANDOM%8)).mp3 --gain 0.33 --play-and-exit]]))
-hl.bind(mainMod .. " + HOME", hl.dsp.exec_cmd([[hyprshutdown -t "Shutting down..." -p "shutdown now"]]))
-hl.bind(mainMod .. " + PRIOR", hl.dsp.exec_cmd([[hyprshutdown -t "Rebooting..." -p "reboot"]]))
-hl.bind(mainMod .. " + DELETE", hl.dsp.exec_cmd([[systemctl suspend]]))
-hl.bind(mainMod .. " + END", hl.dsp.exec_cmd([[pidof hyprlock || hyprlock]]))
-hl.bind(mainMod .. " + NEXT", hl.dsp.exec_cmd([[hyprshutdown -t "Logging out..."]]))
-
 -- Window operations.
 -- hl.bind(mainMod .. " + Q", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + D", hl.dsp.layout("togglesplit")) -- dwindle only
@@ -107,12 +99,6 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true, rep
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true, repeating = false, })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true, repeating = false, })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true, repeating = false, })
-
--- Brightness controls
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 1%+"))
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 1%-"))
-hl.bind("SHIFT + XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 10%+"))
-hl.bind("SHIFT + XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 10%-"))
 
 -- Quickshell
 -- hl.bind(mainMod .. " + adiaeresis", hl.dsp.exec_cmd("notify-send 'hate' 'let me tell you how much ive come to hate you since i began to live.'"))

@@ -32,7 +32,7 @@ _:
                 ffmpeg -i "$1" -c copy -metadata title="$2" -metadata comment="" "$3"
             }
 
-            mkcddir() {
+            mk() {
                 mkdir "$1" && cd "$1"
             }
         '' + "\n"
