@@ -10,6 +10,18 @@
                 sdk_10_0
                 sdk_11_0
             ])
+            sdl3
+            sdl3-image
+            sdl3-ttf
+            wayland
+            libxkbcommon
+            libdecor
+            libGL
+            libX11
+            libxext
+            libxcursor
+            libxi
+            libxrandr
         ];
     };
 }

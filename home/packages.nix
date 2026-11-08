@@ -21,10 +21,8 @@
         fzf
         trash-cli
         obs-studio
-        superfile
-        wget
         dig
-        netcat
+        typst
 
         # Chat
         discord
@@ -52,6 +50,7 @@
         dwarf-fortress
         mindustry
         supertuxkart
+        benhsm-minesweeper
 
         # Dev
         gcc
@@ -64,5 +63,6 @@
         ])
         python3
         zig
+        openjdk25
     ];
 }

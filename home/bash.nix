@@ -8,6 +8,7 @@ _:
             ls = "ls --color -p";
             la = "ls --color -pA";
             ll = "ls --color -pAlh";
+            lsl = "ls --color -plh";
 
             gadd = "git add .";
             gcommit = "git add . && git commit -m";
@@ -32,7 +33,7 @@ _:
                 ffmpeg -i "$1" -c copy -metadata title="$2" -metadata comment="" "$3"
             }
 
-            mgd() {
+            mk() {
                 mkdir "$1" && cd "$1"
             }
         '' + "\n"

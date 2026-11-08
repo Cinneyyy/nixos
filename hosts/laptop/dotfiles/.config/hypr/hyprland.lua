@@ -15,6 +15,18 @@ hl.config({
     },
 })
 
+-- Lid switch.
 hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("hyprlock"), { locked = true, })
+
+-- Brightness controls
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 1%+"))
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 1%-"))
+hl.bind("SHIFT + XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 10%+"))
+hl.bind("SHIFT + XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 10%-"))
+
+-- Playerctl shortcuts.
+hl.bind("XF86TouchpadToggle", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true, repeating = false, })
+hl.bind("XF86TouchpadOn", hl.dsp.exec_cmd("playerctl previous"), { locked = true, repeating = false, })
+hl.bind("F23", hl.dsp.exec_cmd("playerctl next"), { locked = true, repeating = false, })
 
 require("hyprland/hyprland")

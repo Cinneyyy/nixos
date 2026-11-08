@@ -6,9 +6,9 @@
 - declarative configs for steam (!!), whatsapp, discord, firefox/browser, signal
 - kitty fancy autocompletion
 - fix c and quickshell lsp
-- dev shells
 - organize packages
 - switch matrix client
+- nvim multicursor
 
 # Quickshell
 - document all shortcuts / actions
