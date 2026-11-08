@@ -351,7 +351,7 @@
                 typst = {
                     enable = true;
                     extensions.typst-concealer = {
-                        enable = true;
+                        enable = false;
                         setupOpts = {
                             enabled_by_default = false;
                             conceal_in_normal = false;

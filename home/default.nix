@@ -16,8 +16,6 @@
         ./protonvpn.nix
         ./qbittorrent.nix
         #./steam.nix # enable once there are more options to set.
-
-        ./sdl3.nix
     ];
 
     home = {
