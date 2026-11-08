@@ -1,4 +1,6 @@
 -- numMonitors is defined in the host file importing hyprland.lua
+local numMonitors = numMonitors
+local hl = hl
 
 local function getMonitor(workspace)
     if workspace == 1 or numMonitors == 1 then
@@ -13,15 +15,15 @@ local function getIsDefault(workspace, monitor)
 end
 
 local numWorkspaces = 4
-for i = 1, numWorkspaces do
+for i = 1, 9 do
     local monitor = getMonitor(i)
     local isDefault = getIsDefault(i, monitor)
 
     hl.workspace_rule({
         workspace = tostring(i),
-        monitor = monitor,
+        monitor = tostring(monitor),
         default = isDefault,
-        persistent = true,
+        persistent = i <= numWorkspaces,
     })
 end
 

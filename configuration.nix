@@ -11,6 +11,7 @@ _:
         ./modules/autoCleanup.nix # Manages automatic system upgrades and garbage collection.
         ./modules/fonts.nix
         ./modules/nix-ld.nix
+        ./modules/bluetooth.nix
     ];
 
     boot = {

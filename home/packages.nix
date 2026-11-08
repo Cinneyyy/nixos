@@ -31,7 +31,6 @@
         signal-desktop
         whatsapp-electron
         cinny-desktop
-        fluffychat
 
         # GUI Utils
         vlc
