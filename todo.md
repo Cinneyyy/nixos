@@ -9,6 +9,7 @@
 - organize packages
 - switch matrix client
 - nvim multicursor
+- fix firefox shortcut now working with multiple windows
 
 # Quickshell
 - document all shortcuts / actions

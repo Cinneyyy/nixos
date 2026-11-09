@@ -23,6 +23,8 @@
         obs-studio
         dig
         typst
+        sl
+        cowsay
 
         # Chat
         discord
