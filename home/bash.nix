@@ -10,8 +10,6 @@ _:
             ll = "ls --color -pAlh";
             lsl = "ls --color -plh";
 
-            dc = "cd ..";
-
             gadd = "git add .";
             gcommit = "git add . && git commit -m";
             gpush = "git push -u";
@@ -24,11 +22,18 @@ _:
             nv = "nvim .";
             bashh = "nvim ~/.bash_history";
             cloc = "cloc .";
-            ff = "fastfetch";
             tr = "trash";
+            ff = "fastfetch";
+            hf = "hyfetch";
+            dc = "cd ..";
+
+            pwease = "sudo ";
+            kys = "shutdown now";
 
             dnr = "dotnet run";
             dnb = "dotnet build";
+
+            ":3" = "cvlc ~/.config/quickshell/sounds/cats/$(($RANDOM%8)).mp3 --gain 0.33 --play-and-exit &> /dev/null & disown";
         };
         bashrcExtra = ''
             ffmeta() {

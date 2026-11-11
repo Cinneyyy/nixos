@@ -42,6 +42,7 @@
                 # Markup previews.
                 { mode = "n"; key = "tm"; action = ":Markview<cr>"; }
                 { mode = "n"; key = "tt"; action = ":TypstPreview<cr>"; }
+                { mode = "n"; key = "tc"; action = ":PickColorScheme<cr>"; }
             ];
             autocmds = [
                 # Hightlight on yank.
@@ -130,25 +131,37 @@
             # Random color scheme.
             luaConfigRC.colorScheme = ''
                 local colorSchemes = {
-                    "catppuccin",
-                    "darkblue",
-                    "elflord",
-                    "lunaperche",
-                    "koehler",
-                    "murphy",
                     "pablo",
                     "retrobox",
-                    "ron",
-                    "slate",
-                    "vim",
-                    "wildcharm",
-                    "zaibatsu",
+                    "retrobox", -- twice, for good measure
                     "sorbet",
+                    "lunaperche",
+                    "elflord",
+                    "zaibatsu",
+                    "wildcharm",
+                    "catppuccin",
+                    "darkblue",
+                    "slate",
+                    "koehler",
+                    --"murphy",
+                    --"ron",
                 };
 
-                math.randomseed(os.time())
-                local colorScheme = colorSchemes[math.random(#colorSchemes)]
-                vim.cmd.colorscheme(colorScheme)
+                function selColorScheme()
+                    math.randomseed(os.time())
+                    local colorScheme = colorSchemes[math.random(#colorSchemes)]
+                    vim.cmd.colorscheme(colorScheme)
+                end
+
+                vim.api.nvim_create_user_command("PickColorScheme", function(opts)
+                    selColorScheme()
+                end, { nargs = 0 })
+
+                selColorScheme()
+
+                --math.randomseed(os.time())
+                --local colorScheme = colorSchemes[math.random(#colorSchemes)]
+                --vim.cmd.colorscheme(colorScheme)
             '';
             # Telescope.
             telescope = {
@@ -178,7 +191,7 @@
                 indent-blankline-nvim
                 rainbow-delimiters-nvim
                 kitty-scrollback-nvim
-                calendar-vim
+                #calendar-vim
             ];
             luaConfigRC = {
                 telescope = ''
@@ -350,16 +363,6 @@
                 };
                 typst = {
                     enable = true;
-                    extensions.typst-concealer = {
-                        enable = false;
-                        setupOpts = {
-                            enabled_by_default = false;
-                            conceal_in_normal = false;
-                            do_diagnostics = true;
-                            ppi = 144;
-                            styling_type = "colorscheme";
-                        };
-                    };
                 };
             };
             luaConfigPost = ''

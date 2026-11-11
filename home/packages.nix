@@ -25,6 +25,7 @@
         typst
         sl
         cowsay
+        hyfetch
 
         # Chat
         discord

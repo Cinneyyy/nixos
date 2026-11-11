@@ -52,7 +52,7 @@ hl.window_rule({
 })
 hl.window_rule({
     match = {
-        class = ".*(whatsapp|signal|fluffychat).*",
+        class = ".*(whatsapp|signal|cinny).*",
     },
     workspace = "3",
     no_initial_focus = true
