@@ -2,7 +2,7 @@ _:
 
 {
     system.autoUpgrade = {
-        enable = true;
+        enable = false;
         flake = "/home/colin/nixos";
         flags = [
             "--print-build-logs"
