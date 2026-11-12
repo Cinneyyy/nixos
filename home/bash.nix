@@ -10,6 +10,8 @@ _:
             ll = "ls --color -pAlh";
             lsl = "ls --color -plh";
 
+            dc = "cd ..";
+
             gadd = "git add .";
             gcommit = "git add . && git commit -m";
             gpush = "git push -u";
