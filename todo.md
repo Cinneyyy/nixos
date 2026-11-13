@@ -10,6 +10,7 @@
 - switch matrix client
 - nvim multicursor
 - fix firefox shortcut now working with multiple windows
+- nix web apps, see [https://wiki.nixos.org/wiki/Matrix]
 
 # Quickshell
 - document all shortcuts / actions

@@ -36,8 +36,13 @@ end)
 -- #: name (autostart)
 -- 1: primary (kitty, firefox)
 -- 2: secondary (discord, steam)
--- 3: messaging (whatsapp, signal)
+-- 3: messaging (whatsapp, signal, matrix)
 -- 4: misc (bitwarden)
+
+hl.workspace_rule({
+    workspace = "3",
+    layout = "master",
+})
 
 hl.window_rule({
     match = {
@@ -54,7 +59,7 @@ hl.window_rule({
 })
 hl.window_rule({
     match = {
-        class = ".*(whatsapp|signal|cinny).*",
+        class = ".*(whatsapp|signal|cinny|element).*",
     },
     workspace = "3",
     no_initial_focus = true

@@ -32,6 +32,7 @@
         signal-desktop
         whatsapp-electron
         cinny-desktop
+        element-desktop
 
         # GUI Utils
         vlc
