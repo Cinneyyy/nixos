@@ -11,7 +11,7 @@ _:
             lsl = "ls --color -plh";
 
             gadd = "git add .";
-            gcommit = "git add . && git commit -m";
+            gcommit = "git commit -a -m";
             gpush = "git push -u";
             gpull = "git pull";
             gfetch = "git fetch";
