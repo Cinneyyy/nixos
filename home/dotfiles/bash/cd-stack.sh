@@ -16,7 +16,8 @@ ls-post-cd() {
     if [[ $ls_item_count -lt $max_items ]]; then
         ls --color -pA
     else
-        local ls_new_item_count=$(ls | wc -l)
+        local ls_new_item_count
+        ls_new_item_count=$(ls | wc -l)
         if [[ $ls_new_item_count -lt $max_items ]]; then
             ls --color -p
             echo "(from cd-ls) showing only $ls_new_item_count non-hidden out of $ls_item_count total."
@@ -24,6 +25,23 @@ ls-post-cd() {
             echo "(from cd-ls) too many items in directory: $ls_item_count."
         fi
     fi
+}
+
+cdd() {
+    builtin cd "$@" || return
+
+    local ret=$?
+    ((ret == 0)) || return "$ret"
+
+    ls-post-cd
+
+    _CD_STACK=("$PWD" "${_CD_STACK[@]}")
+    if ((${#_CD_STACK[@]} > CD_STACK_MAX)); then
+        unset "_CD_STACK[${#_CD_STACK[@]}-1]"
+    fi
+    _CD_STACK_PTR=0
+
+    return "$ret"
 }
 
 cd() {
