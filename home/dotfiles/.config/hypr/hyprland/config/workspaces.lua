@@ -18,13 +18,21 @@ local numWorkspaces = 4
 for i = 1, 9 do
     local monitor = getMonitor(i)
     local isDefault = getIsDefault(i, monitor)
+    local isPersistent = i <= numWorkspaces
 
     hl.workspace_rule({
         workspace = tostring(i),
         monitor = tostring(monitor),
         default = isDefault,
-        persistent = i <= numWorkspaces,
+        persistent = isPersistent,
     })
+
+    if i > 1 then
+        hl.workspace_rule({
+            workspace = tostring(i),
+            layout = "master",
+        })
+    end
 end
 
 hl.on("hyprland.start", function ()
@@ -38,11 +46,6 @@ end)
 -- 2: secondary (discord, steam)
 -- 3: messaging (whatsapp, signal, matrix)
 -- 4: misc (bitwarden)
-
-hl.workspace_rule({
-    workspace = "3",
-    layout = "master",
-})
 
 hl.window_rule({
     match = {

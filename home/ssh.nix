@@ -5,10 +5,6 @@ _:
         enable = true;
         enableDefaultConfig = false;
         settings = {
-            PasswordAuthentication = false;
-            KbdInteractiveAuthentication = false;
-            PermitRootLogin = "no";
-            AllowUsers = [];
             "pi.colin.monster" = {
                 Hostname = "pi.colin.monster";
                 User = "pi";
