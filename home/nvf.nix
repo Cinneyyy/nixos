@@ -351,7 +351,7 @@
                     };
                 };
                 qml = {
-                    enable = true;
+                    enable = false;
                 };
                 zig = {
                     enable = true;

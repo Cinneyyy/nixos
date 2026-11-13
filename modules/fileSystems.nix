@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
     # Previous fstab config:

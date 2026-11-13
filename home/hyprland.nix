@@ -2,7 +2,6 @@
 {
     home.packages = with pkgs; [
         kitty
-        hyprlauncher
         hyprpolkitagent
         hyprshutdown
         hyprpaper
