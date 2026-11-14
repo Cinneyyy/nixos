@@ -10,11 +10,17 @@
         ./ssh.nix
 
         ./kitty.nix
-        ./hyprland.nix
+        ./hyprland
         ./nvf.nix
+        ./hyfetch.nix
+
+        ./cinny.nix
+        # ./prismix.nix
 
         ./protonvpn.nix
         ./qbittorrent.nix
+
+        ./uni.nix
         #./steam.nix # enable once there are more options to set.
     ];
 

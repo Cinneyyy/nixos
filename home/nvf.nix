@@ -40,9 +40,9 @@
                 { mode = "n"; key = "<down>"; action = ":echo 'No, fuck you.'<cr>"; }
 
                 # Markup previews.
-                { mode = "n"; key = "tm"; action = ":Markview<cr>"; }
-                { mode = "n"; key = "tt"; action = ":TypstPreview<cr>"; }
-                { mode = "n"; key = "tc"; action = ":PickColorScheme<cr>"; }
+                { mode = "n"; key = "<space>tm"; action = ":Markview<cr>"; }
+                { mode = "n"; key = "<space>tt"; action = ":TypstPreview<cr>"; }
+                { mode = "n"; key = "<space>tc"; action = ":PickColorScheme<cr>"; }
             ];
             autocmds = [
                 # Hightlight on yank.
@@ -244,15 +244,15 @@
             lsp = {
                 enable = true;
                 mappings = {
-                    renameSymbol = "grn";
-                    codeAction = "gc";
-                    goToDefinition = "gd";
-                    goToDeclaration = "gD";
-                    signatureHelp = "gs";
-                    openDiagnosticFloat = "go";
-                    nextDiagnostic = "gn";
-                    previousDiagnostic = "gp";
-                    listReferences = "grr";
+                    renameSymbol = "<space>cr";
+                    codeAction = "<space>ca";
+                    goToDefinition = "<space>cd";
+                    goToDeclaration = "<space>cD";
+                    signatureHelp = "<space>cs";
+                    openDiagnosticFloat = "<space>co";
+                    nextDiagnostic = "<space>cn";
+                    previousDiagnostic = "<space>gp";
+                    listReferences = "<space>cR";
                 };
             };
             autocomplete = {

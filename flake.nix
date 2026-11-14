@@ -15,10 +15,15 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        steam-config = {
-            url = "github:different-name/steam-config-nix";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
+        # prismix = {
+        #     url = "git+https://codeberg.org/OliMoli/prismix";
+        #     inputs.nixpkgs.follows = "nixpkgs";
+        # };
+
+        # steam-config = {
+        #     url = "github:different-name/steam-config-nix";
+        #     inputs.nixpkgs.follows = "nixpkgs";
+        # };
     };
 
     outputs = {
@@ -26,7 +31,8 @@
         nixpkgs-unstable,
         home-manager,
         nvf,
-        steam-config,
+        # prismix,
+        # steam-config,
         ...
     }:
     let
@@ -47,7 +53,8 @@
                             users.colin = import ./hosts/pc/home.nix;
                             sharedModules = [
                                 nvf.homeManagerModules.default
-                                steam-config.homeModules.default
+                                # prismix.homeModules.default
+                                # steam-config.homeModules.default
                             ];
                         };
                     }
@@ -67,7 +74,8 @@
                             users.colin = import ./hosts/laptop/home.nix;
                             sharedModules = [
                                 nvf.homeManagerModules.default
-                                steam-config.homeModules.default
+                                # prismix.homeModules.default
+                                # steam-config.homeModules.default
                             ];
                         };
                     }

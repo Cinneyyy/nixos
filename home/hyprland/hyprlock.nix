@@ -1,25 +1,8 @@
-{ pkgs, ... }:
+_:
+
 {
-    home.packages = with pkgs; [
-        kitty
-        hyprpolkitagent
-        hyprshutdown
-        hyprpaper
-        hyprlock
-        libnotify
-        quickshell
-        grim
-        slurp
-        wl-clipboard
-        playerctl
-    ];
-
-    home.file.".config/hypr/hyprland".source = ./dotfiles/.config/hypr/hyprland;
-    home.file.".config/hypr/restore_hyprlock.sh".source = ./dotfiles/.config/hypr/hyprland;
-
     programs.hyprlock = {
         enable = true;
-        package = pkgs.hyprlock;
         settings = {
             general.hide_cursor = true;
             auth.pam = {
@@ -52,19 +35,6 @@
 
                 halign = "center";
                 valign = "center";
-            };
-        };
-    };
-
-    services.hyprpaper = {
-        enable = true;
-        package = pkgs.hyprpaper;
-        settings = {
-            splash = false;
-            wallpaper = {
-                monitor = "";
-                path = "~/.wallpapers/black.png";
-                fit_mode = "cover";
             };
         };
     };

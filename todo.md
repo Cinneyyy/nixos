@@ -5,12 +5,11 @@
 - screenshots that freeze the screen (hyprcapture?)
 - declarative configs for steam (!!), whatsapp, discord, firefox/browser, signal
 - kitty fancy autocompletion
-- fix c and quickshell lsp
+- fix c and qml lsp
 - organize packages
-- switch matrix client
 - nvim multicursor
-- fix firefox shortcut now working with multiple windows
-- nix web apps, see [https://wiki.nixos.org/wiki/Matrix]
+- fix (firefox) shortcut now working with multiple windows
+- nix web apps
 
 # Quickshell
 - document all shortcuts / actions
@@ -30,6 +29,4 @@
 - make bgBorder colors uniform
 - rename accentPrimary to accent
 - close status bar menus when clicking elsewhere
-- weird workspace module behaviour when switching from an empty workspace
 - make wifi password copyable
-- only show workspaces on the monitor theyre on

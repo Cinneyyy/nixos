@@ -37,11 +37,6 @@
                     on-timeout = "brightnessctl -s set 10";
                     on-resume = "brightnessctl -r";
                 }
-                # {
-                #     timeout = 300;
-                #     on-timeout = "hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'";
-                #     on-resume = "hyprctl dispatch 'hl.dsp.dpms({ action = \"enable\" })'";
-                # }
                 {
                     timeout = 930;
                     on-timeout = "systemctl suspend";

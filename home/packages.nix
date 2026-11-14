@@ -3,7 +3,6 @@
 {
     home.packages = with pkgs; [
         # CLI utils
-        fastfetch
         zip
         unzip
         ffmpeg
@@ -25,16 +24,14 @@
         typst
         sl
         cowsay
-        hyfetch
 
         # Chat
         discord
         signal-desktop
         whatsapp-electron
-        cinny-desktop
-        element-desktop
 
         # GUI Utils
+        kitty
         vlc
         bitwarden-desktop
         audacity
@@ -67,6 +64,5 @@
         ])
         python3
         zig
-        openjdk25
     ];
 }

@@ -10,8 +10,8 @@ hl.on("hyprland.start", function ()
 
     hl.exec_cmd("signal-desktop")
     hl.exec_cmd("whatsapp-electron")
-    hl.exec_cmd("cinny")
-    hl.exec_cmd("element-desktop")
+    hl.exec_cmd("cinny-cinneyyy")
+    hl.exec_cmd("cinny-kit")
 
     hl.exec_cmd("bitwarden")
 end)
