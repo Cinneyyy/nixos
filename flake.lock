@@ -106,33 +106,12 @@
         "type": "github"
       }
     },
-    "prismix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1793812307,
-        "narHash": "sha256-8mRcDXeKRuPg2G0I34QSjO9kyvVSwPMvjGx3c5LCY0Q=",
-        "ref": "refs/heads/main",
-        "rev": "5795e938a5f1ccc69511dfaa8a6cde04f561337d",
-        "revCount": 36,
-        "type": "git",
-        "url": "https://codeberg.org/OliMoli/prismix"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://codeberg.org/OliMoli/prismix"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "nvf": "nvf",
-        "prismix": "prismix"
+        "nvf": "nvf"
       }
     }
   },

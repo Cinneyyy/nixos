@@ -14,7 +14,7 @@ local function getIsDefault(workspace, monitor)
     return workspace-1 == monitor
 end
 
-local numWorkspaces = 4
+local numWorkspaces = 5
 for i = 1, 9 do
     local monitor = getMonitor(i)
     local isDefault = getIsDefault(i, monitor)
