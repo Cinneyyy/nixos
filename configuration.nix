@@ -12,6 +12,7 @@ _:
         ./modules/fonts.nix
         ./modules/nix-ld.nix
         ./modules/bluetooth.nix
+        ./modules/scanner.nix
     ];
 
     boot = {

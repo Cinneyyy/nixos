@@ -12,6 +12,7 @@
         libnotify
         quickshell
         grim
+        grimblast
         slurp
         wl-clipboard
         playerctl

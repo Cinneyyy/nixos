@@ -8,7 +8,7 @@ hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("hyprctl reload"))
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("pkill quickshell; qs"))
 
 -- Quick utils (screenshot, colour picker).
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd([[grim -g "$(slurp -d)" - | wl-copy]]))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd([[grimblast --freeze copy area]]))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd([[grim -g "$(slurp -p)" -t ppm - | magick - -format "%[pixel:p{0,0}]" txt:- | grep -oE "#[0-9A-F]{6}" | tr '[:upper:]' '[:lower:]' | wl-copy -n]]))
 
 -- OS shortcuts.

@@ -24,6 +24,7 @@
         typst
         sl
         cowsay
+        usbutils
 
         # Chat
         discord

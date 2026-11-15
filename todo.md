@@ -2,7 +2,6 @@
 - wallpaper (themes)
 - pixel measure tool
 - document all shortcuts / actions
-- screenshots that freeze the screen (hyprcapture?)
 - declarative configs for steam (!!), whatsapp, discord, firefox/browser, signal
 - kitty fancy autocompletion
 - fix c and qml lsp

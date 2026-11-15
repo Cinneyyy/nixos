@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
     users.users."colin" = {
@@ -6,7 +6,9 @@
         description = "colin";
         extraGroups = [
             "networkmanager"
-            "wheel"
+            "wheel" # use sudo
+            "scanner" # to use scanner
+            "lp" # to use printer
         ];
     };
 
