@@ -5,8 +5,8 @@ _:
         isNormalUser = true;
         description = "colin";
         extraGroups = [
-            "networkmanager"
             "wheel" # use sudo
+            "networkmanager"
             "scanner" # to use scanner
             "lp" # to use printer
         ];
