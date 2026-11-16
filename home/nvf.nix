@@ -17,7 +17,7 @@
                 { mode = "n"; key = "<c-t>"; action = ":term<cr>i"; }
                 { mode = "t"; key = "<esc>"; action = "<c-\\><c-n>"; }
 
-                # Duplicate line.
+                # Duplicate lisne.
                 { mode = "n"; key = "<c-e>"; action = ":co.<cr>"; }
 
                 # Repeat last action.
@@ -88,6 +88,20 @@
                         end
                     '';
                 }
+
+                # # Java checkstyle.
+                # {
+                #     event = [
+                #         "FileType"
+                #     ];
+                #     pattern = [
+                #         "java"
+                #     ];
+                #     callback = lib.mkLuaInline ''
+                #         function ()
+                #         end
+                #     '';
+                # }
             ];
             opts = {
                 # Line numbers.
@@ -127,6 +141,9 @@
                 # Indentation.
                 autoindent = true;
                 smartindent = true;
+
+                # Disable, since mode is in status line.
+                showmode = false;
             };
             # Random color scheme.
             luaConfigRC.colorScheme = ''
@@ -147,9 +164,10 @@
                     --"ron",
                 };
 
+                colorScheme = ""
                 function selColorScheme()
                     math.randomseed(os.time())
-                    local colorScheme = colorSchemes[math.random(#colorSchemes)]
+                    colorScheme = colorSchemes[math.random(#colorSchemes)]
                     vim.cmd.colorscheme(colorScheme)
                 end
 
@@ -158,10 +176,6 @@
                 end, { nargs = 0 })
 
                 selColorScheme()
-
-                --math.randomseed(os.time())
-                --local colorScheme = colorSchemes[math.random(#colorSchemes)]
-                --vim.cmd.colorscheme(colorScheme)
             '';
             # Telescope.
             telescope = {
@@ -239,6 +253,18 @@
 
                 kitty-scrollback = ''
                     require("kitty-scrollback").setup()
+                '';
+
+                mini-statusline = ''
+                    statusline = require "mini.statusline"
+
+                    statusline.section_location = function ()
+                        return "%3l:%-2v %-3L"
+                    end
+
+                    statusline.section_fileinfo = function (args)
+                        return colorScheme .. " :3"
+                    end
                 '';
             };
             lsp = {
@@ -375,6 +401,7 @@
                     },
                 })
             '';
+            mini.statusline.enable = true;
         };
     };
 }
