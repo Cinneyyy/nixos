@@ -15,13 +15,11 @@
         ./hyfetch.nix
 
         ./cinny.nix
-        # ./prismix.nix
 
         ./protonvpn.nix
         ./qbittorrent.nix
 
         ./uni.nix
-        #./steam.nix # enable once there are more options to set.
     ];
 
     home = {
