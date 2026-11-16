@@ -2,13 +2,13 @@ _:
 
 {
     imports = [
-        ./modules/fileSystems.nix
+        ./modules/file-systems.nix
         ./modules/locale.nix
         ./modules/pipewire.nix
         ./modules/users.nix # Also sets up home-manager.
         ./modules/hyprland.nix
-        ./modules/systemPackages.nix
-        ./modules/autoCleanup.nix # Manages automatic system upgrades and garbage collection.
+        ./modules/system-packages.nix
+        ./modules/auto-cleanup.nix # Manages automatic system upgrades and garbage collection.
         ./modules/fonts.nix
         ./modules/nix-ld.nix
         ./modules/bluetooth.nix

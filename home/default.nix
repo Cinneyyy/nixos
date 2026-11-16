@@ -11,8 +11,8 @@
 
         ./kitty.nix
         ./hyprland
-        ./nvf.nix
         ./hyfetch.nix
+        ./nvf
 
         ./cinny.nix
 
