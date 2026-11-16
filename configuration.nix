@@ -4,6 +4,7 @@ _:
     imports = [
         ./modules/file-systems.nix
         ./modules/locale.nix
+        ./modules/keyboard.nix
         ./modules/pipewire.nix
         ./modules/users.nix # Also sets up home-manager.
         ./modules/hyprland.nix

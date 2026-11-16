@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
     time.timeZone = "Europe/Berlin";
@@ -14,34 +14,5 @@
         LC_PAPER = "de_DE.UTF-8";
         LC_TELEPHONE = "de_DE.UTF-8";
         LC_TIME = "en_GB.UTF-8";
-    };
-
-    console.keyMap = "de";
-
-    services.keyd = {
-        enable = true;
-        keyboards.default = {
-            ids = [
-                "*"
-            ];
-            settings.main = {
-                z = "y";
-                y = "z";
-
-                capslock = "esc";
-
-                # Volume controls
-                kpslash = "volumedown"; # volume+
-                kpasterisk = "volumeup"; # volume-
-                kpminus = "mute"; # mute
-                kpplus = "layer(meta)"; # microphone
-                kp7 = "layer(shift)"; # 10x
-
-                # Media controls
-                kp1 = "play";
-                kp2 = "previoussong";
-                kp3 = "nextsong";
-            };
-        };
     };
 }
