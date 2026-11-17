@@ -13,8 +13,12 @@ _:
                 return "%3l:%-2v %-3L"
             end
 
-            statusline.section_fileinfo = function (args)
-                return colorScheme .. " :3"
+            statusline.section_fileinfo = function ()
+                return colorScheme
+            end
+
+            statusline.section_lsp = function ()
+                return ":3"
             end
         '';
     };
