@@ -40,7 +40,7 @@
                         home-manager = {
                             users.colin = import ./hosts/pc/home.nix;
                             sharedModules = [
-                                nvf.homeManagerModules.default
+                                nvf.homeModules.default
                             ];
                         };
                     }
@@ -59,7 +59,7 @@
                         home-manager = {
                             users.colin = import ./hosts/laptop/home.nix;
                             sharedModules = [
-                                nvf.homeManagerModules.default
+                                nvf.homeModules.default
                             ];
                         };
                     }
