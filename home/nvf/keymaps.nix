@@ -12,8 +12,8 @@ _:
         { mode = "n"; key = "<c-t>"; action = ":term<cr>i"; }
         { mode = "t"; key = "<esc>"; action = "<c-\\><c-n>"; }
 
-        # Duplicate lisne.
-        { mode = "n"; key = "<c-e>"; action = ":co.<cr>"; }
+        # Duplicate line.
+        { mode = "n"; key = "<c-f>"; action = ":co.<cr>"; }
 
         # Repeat last action.
         { mode = "n"; key = "<c-a>"; action = "."; }

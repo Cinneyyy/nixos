@@ -20,14 +20,14 @@ osExec("I", "hyprctl reload")
 osExec("O", "pkill quickshell; qs")
 
 -- Quick utils (screenshot, colour picker).
-osExec("S", "grimblast --freze copy area")
-osExec("B", [[
-    grim -g "$(slurp -p)" -t ppm -
-    | magick - -format "%[pixel:p{0,0}]" txt:-
-    | grep -oE "#[0-9A-F]{6}"
-    | tr '[:upper:]' '[:lower:]'
-    | wl-copy -n
-]])
+osExec("S", "grimblast --freeze copy area")
+osExec("B",
+    [[grim -g "$(slurp -p)" -t ppm - ]] ..
+    [[| magick - -format '%[pixel:p{0,0}]' txt:- ]] ..
+    [[| grep -oE '#[0-9A-F]{6}' ]] ..
+    [[| tr '[:upper:]' '[:lower:]' ]] ..
+    [[| wl-copy -n]]
+)
 
 -- Window actions.
 osDsp("A", hl.dsp.window.close())
