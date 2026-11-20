@@ -26,4 +26,4 @@ hl.bind("XF86TouchpadToggle", hl.dsp.exec_cmd("playerctl play-pause"), { locked 
 hl.bind("XF86TouchpadOn", hl.dsp.exec_cmd("playerctl previous"), { locked = true, repeating = false, })
 hl.bind("F23", hl.dsp.exec_cmd("playerctl next"), { locked = true, repeating = false, })
 
-require("hyprland/hyprland")
+require("hyprland/init")

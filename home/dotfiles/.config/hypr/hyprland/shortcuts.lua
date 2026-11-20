@@ -51,6 +51,21 @@ osMoveFocus("DOWN", "down")
 osMoveFocus("UP", "up")
 osMoveFocus("RIGHT", "right")
 
+-- Move winodws.
+local function osMoveWindow(key, dir)
+    osDsp("SHIFT + " .. key, hl.dsp.window.move({
+        direction = dir,
+    }))
+end
+osMoveWindow("H", "left")
+osMoveWindow("J", "down")
+osMoveWindow("K", "up")
+osMoveWindow("L", "right")
+osMoveWindow("LEFT", "left")
+osMoveWindow("DOWN", "down")
+osMoveWindow("UP", "up")
+osMoveWindow("RIGHT", "right")
+
 -- Resize windows with arrow keys.
 local function osResize(key, x, y, step)
     osDsp(key, hl.dsp.window.resize({

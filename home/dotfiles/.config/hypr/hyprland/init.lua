@@ -7,6 +7,7 @@ require("hyprland/input")
 require("hyprland/shortcuts")
 require("hyprland/workspaces")
 require("hyprland/window_rules")
+require("hyprland/theme")
 
 hl.monitor({
     output = "",

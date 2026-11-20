@@ -23,4 +23,4 @@ hl.bind(mainMod .. " + DELETE", hl.dsp.exec_cmd([[systemctl suspend]]))
 hl.bind(mainMod .. " + END", hl.dsp.exec_cmd([[pidof hyprlock || hyprlock]]))
 hl.bind(mainMod .. " + NEXT", hl.dsp.exec_cmd([[hyprshutdown -t "Logging out..."]]))
 
-require("hyprland/hyprland")
+require("hyprland/init")
