@@ -9,6 +9,7 @@
 - nvim multicursor
 - fix (firefox) shortcut now working with multiple windows
 - nix web apps
+- wallpaper only on empty screen
 
 # Quickshell
 - document all shortcuts / actions

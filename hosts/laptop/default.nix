@@ -15,4 +15,12 @@ _:
         HandleLidSwitch = "suspend";
         HandleLidSwitchExternalPower = "suspend";
     };
+
+    # TODO: test which works better.
+    # services.logind.settings.Login = {
+    #     HandleLidSwitch = "hibernate";
+    #     HandleLidSwitchExternalPower = "suspend";
+    # };
+    #
+    # security.protectKernelImage = false;
 }

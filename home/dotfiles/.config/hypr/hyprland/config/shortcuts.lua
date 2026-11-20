@@ -1,111 +1,124 @@
-local mainMod = "SUPER"
+local hl = hl
+
+local function osDsp(key, dsp, flags, noSuper)
+    if noSuper then
+        hl.bind(key, dsp, flags)
+    else
+        hl.bind("SUPER + " .. key, dsp, flags)
+    end
+end
+
+local function osExec(key, cmd, flags, noSuper)
+    osDsp(key, hl.dsp.exec_cmd(cmd), flags, noSuper)
+end
 
 -- Launcher.
-hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("qs ipc call launcher toggle"))
+osExec("X", "qs ipc call launcher toggle")
 
 -- Reload keybinds.
-hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("hyprctl reload"))
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("pkill quickshell; qs"))
+osExec("I", "hyprctl reload")
+osExec("O", "pkill quickshell; qs")
 
 -- Quick utils (screenshot, colour picker).
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd([[grimblast --freeze copy area]]))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd([[grim -g "$(slurp -p)" -t ppm - | magick - -format "%[pixel:p{0,0}]" txt:- | grep -oE "#[0-9A-F]{6}" | tr '[:upper:]' '[:lower:]' | wl-copy -n]]))
+osExec("S", "grimblast --freze copy area")
+osExec("B", [[
+    grim -g "$(slurp -p)" -t ppm -
+    | magick - -format "%[pixel:p{0,0}]" txt:-
+    | grep -oE "#[0-9A-F]{6}"
+    | tr '[:upper:]' '[:lower:]'
+    | wl-copy -n
+]])
 
--- OS shortcuts.
-hl.bind(mainMod .. " + A", hl.dsp.window.close())
-hl.bind(mainMod .. " + Z", hl.dsp.window.fullscreen())
+-- Window actions.
+osDsp("A", hl.dsp.window.close())
+osDsp("Z", hl.dsp.window.fullscreen())
+osDsp("P", hl.dsp.window.pseudo())
+osDsp("D", hl.dsp.layout("togglesplit")) -- dwindle only.
+osDsp("F", hl.dsp.window.float({ action = "toggle", }))
 
--- Window operations.
--- hl.bind(mainMod .. " + Q", hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + D", hl.dsp.layout("togglesplit")) -- dwindle only
-hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle", }))
-
--- Move focus with arrow keys.
-hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left", }))
-hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right", }))
-hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up", }))
-hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down", }))
-hl.bind(mainMod .. " + LEFT", hl.dsp.focus({ direction = "left", }))
-hl.bind(mainMod .. " + RIGHT", hl.dsp.focus({ direction = "right", }))
-hl.bind(mainMod .. " + UP", hl.dsp.focus({ direction = "up", }))
-hl.bind(mainMod .. " + DOWN", hl.dsp.focus({ direction = "down", }))
-
--- Move windows with arrow keys.
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "left", }))
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right", }))
-hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up", }))
-hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down", }))
-hl.bind(mainMod .. " + SHIFT + LEFT", hl.dsp.window.move({ direction = "left", }))
-hl.bind(mainMod .. " + SHIFT + RIGHT", hl.dsp.window.move({ direction = "right", }))
-hl.bind(mainMod .. " + SHIFT + UP", hl.dsp.window.move({ direction = "up", }))
-hl.bind(mainMod .. " + SHIFT + DOWN", hl.dsp.window.move({ direction = "down", }))
+-- Move focus.
+local function osMoveFocus(key, dir)
+    osDsp(key, hl.dsp.focus({
+        direction = dir,
+    }))
+end
+osMoveFocus("H", "left")
+osMoveFocus("J", "down")
+osMoveFocus("K", "up")
+osMoveFocus("L", "right")
+osMoveFocus("LEFT", "left")
+osMoveFocus("DOWN", "down")
+osMoveFocus("UP", "up")
+osMoveFocus("RIGHT", "right")
 
 -- Resize windows with arrow keys.
-local function resizeDsp(x, y, step)
-    return hl.dsp.window.resize({
+local function osResize(key, x, y, step)
+    osDsp(key, hl.dsp.window.resize({
         x = step * x,
         y = step * y,
         relative = true,
+    }), {
+        repeating = true,
     })
 end
-local smallStep = 30
-hl.bind(mainMod .. " + ALT + H", resizeDsp(-1, 0, smallStep), { repeating = true, })
-hl.bind(mainMod .. " + ALT + L", resizeDsp(1, 0, smallStep), { repeating = true, })
-hl.bind(mainMod .. " + ALT + K", resizeDsp(0, -1, smallStep), { repeating = true, })
-hl.bind(mainMod .. " + ALT + J", resizeDsp(0, 1, smallStep), { repeating = true, })
-hl.bind(mainMod .. " + ALT + LEFT", resizeDsp(-1, 0, smallStep), { repeating = true, })
-hl.bind(mainMod .. " + ALT + RIGHT", resizeDsp(1, 0, smallStep), { repeating = true, })
-hl.bind(mainMod .. " + ALT + UP", resizeDsp(0, -1, smallStep), { repeating = true, })
-hl.bind(mainMod .. " + ALT + DOWN", resizeDsp(0, 1, smallStep), { repeating = true, })
+
+local smallStep = 25
+osResize("ALT + H", -1, 0, smallStep)
+osResize("ALT + L", 1, 0, smallStep)
+osResize("ALT + J", 0, 1, smallStep)
+osResize("ALT + K", 0, -1, smallStep)
+osResize("ALT + LEFT", -1, 0, smallStep)
+osResize("ALT + RIGHT", 1, 0, smallStep)
+osResize("ALT + DOWN", 0, 1, smallStep)
+osResize("ALT + UP", 0, -1, smallStep)
 
 local bigStep = 150
-hl.bind(mainMod .. " + CTRL + H", resizeDsp(-1, 0, bigStep), { repeating = true, })
-hl.bind(mainMod .. " + CTRL + L", resizeDsp(1, 0, bigStep), { repeating = true, })
-hl.bind(mainMod .. " + CTRL + K", resizeDsp(0, -1, bigStep), { repeating = true, })
-hl.bind(mainMod .. " + CTRL + J", resizeDsp(0, 1, bigStep), { repeating = true, })
-hl.bind(mainMod .. " + CTRL + LEFT", resizeDsp(-1, 0, bigStep), { repeating = true, })
-hl.bind(mainMod .. " + CTRL + RIGHT", resizeDsp(1, 0, bigStep), { repeating = true, })
-hl.bind(mainMod .. " + CTRL + UP", resizeDsp(0, -1, bigStep), { repeating = true, })
-hl.bind(mainMod .. " + CTRL + DOWN", resizeDsp(0, 1, bigStep), { repeating = true, })
+osResize("CTRL + H", -1, 0, bigStep)
+osResize("CTRL + L", 1, 0, bigStep)
+osResize("CTRL + J", 0, 1, bigStep)
+osResize("CTRL + K", 0, -1, bigStep)
+osResize("CTRL + LEFT", -1, 0, bigStep)
+osResize("CTRL + RIGHT", 1, 0, bigStep)
+osResize("CTRL + DOWN", 0, 1, bigStep)
+osResize("CTRL + UP", 0, -1, bigStep)
 
 -- Move / resize windows with lmb/rmb.
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true, })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true, })
+osDsp("mouse:272", hl.dsp.window.drag(), { mouse = true, })
+osDsp("mouse:273", hl.dsp.window.resize(), { mouse = true, })
 
--- Lower/raise/mute volume.
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"), { locked = true, repeating = true, })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"), { locked = true, repeating = true, })
-hl.bind("SHIFT + XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+"), { locked = true, repeating = true, })
-hl.bind("SHIFT + XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-"), { locked = true, repeating = true, })
--- hl.bind("CTRL + XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"), { locked = true, repeating = true, })
--- hl.bind("CTRL + XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"), { locked = true, repeating = true, })
--- hl.bind("ALT + XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+"), { locked = true, repeating = true, })
--- hl.bind("ALT + XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"), { locked = true, repeating = true, })
+-- Change volume.
+local function volumeEvt(key, dev, step)
+    osExec(key, "wpctl set-volume -l 1 @DEFAULT_AUDIO_" .. dev .. "@ " .. step, {
+        locked = true,
+        repeating = true,
+    }, true)
+end
 
-hl.bind(mainMod .. " + XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 1%+"), { locked = true, repeating = true, })
-hl.bind(mainMod .. " + XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-"), { locked = true, repeating = true, })
-hl.bind(mainMod .. "+ SHIFT + XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 10%+"), { locked = true, repeating = true, })
-hl.bind(mainMod .. "+ SHIFT + XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 10%-"), { locked = true, repeating = true, })
+volumeEvt("XF86AudioRaiseVolume", "SINK", "1%+")
+volumeEvt("XF86AudioLowerVolume", "SINK", "1%-")
+volumeEvt("SHIFT + XF86AudioRaiseVolume", "SINK", "10%+")
+volumeEvt("SHIFT + XF86AudioLowerVolume", "SINK", "10%-")
 
-local muteSpeaker = hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
-hl.bind("XF86AudioMute", muteSpeaker, { locked = true, repeating = false })
+volumeEvt("SUPER + XF86AudioRaiseVolume", "SOURCE", "1%+")
+volumeEvt("SUPER + XF86AudioLowerVolume", "SOURCE", "1%-")
+volumeEvt("SUPER + SHIFT + XF86AudioRaiseVolume", "SOURCE", "10%+")
+volumeEvt("SUPER + SHIFT + XF86AudioLowerVolume", "SOURCE", "10%-")
 
-local muteMic = hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle")
-hl.bind("XF86AudioMicMute", muteMic, { locked = true, repeating = false })
-hl.bind(mainMod .. "+ XF86AudioMute", muteMic, { locked = true, repeating = false })
+-- Mute.
+osExec("XF86AudioMute", "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle", { locked = true, })
+osExec("XF86AudioMicMute", "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle", { locked = true, })
 
--- Media controls
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true, repeating = false, })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true, repeating = false, })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true, repeating = false, })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true, repeating = false, })
+-- Media controls (required playerctl).
+osExec("XF86AudioNext", "playerctl next", { locked = true, })
+osExec("XF86AudioPrev", "playerctl previous", { locked = true, })
+osExec("XF86AudioPause", "playerctl play-pause", { locked = true, })
+osExec("XF86AudioPlay", "playerctl play-pause", { locked = true, })
 
--- Quickshell
--- hl.bind(mainMod .. " + adiaeresis", hl.dsp.exec_cmd("notify-send 'hate' 'let me tell you how much ive come to hate you since i began to live.'"))
-hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd("qs ipc call notifications dismissAll"))
-hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("qs ipc call volumeMixer toggle"))
+-- Quickshell.
+osExec("Y", "qs ipc call notifications dismissAll")
+osExec("C", "qs ipc call volumeMixer toggle")
 
--- Discord
+-- Discord.
 hl.bind("CTRL + F9", hl.dsp.send_shortcut({
     mods = "CTRL + SHIFT",
     key = "M",
@@ -117,25 +130,20 @@ hl.bind("CTRL + F10", hl.dsp.send_shortcut({
     window = "class:^discord$",
 }))
 
--- Workspaces
+-- Workspaces.
 for i = 1, 9 do
-    hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = tostring(i), }))
-    hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = tostring(i), }))
+    osDsp(tostring(i), hl.dsp.focus({ workspace = tostring(i), }))
+    osDsp("SHIFT + " .. tostring(i), hl.dsp.window.move({ workspace = tostring(i), }))
 end
 
-hl.bind(mainMod .. " + N", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + M", hl.dsp.focus({ workspace = "e+1" }))
--- hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
--- hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-
-hl.bind(mainMod .. " + SHIFT + N", hl.dsp.window.move({ workspace = "e-1" }))
-hl.bind(mainMod .. " + SHIFT + M", hl.dsp.window.move({ workspace = "e+1" }))
--- hl.bind(mainMod .. " + SHIFT + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
--- hl.bind(mainMod .. " + SHIFT + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+osDsp("N", hl.dsp.focus({ workspace = "e-1", }))
+osDsp("M", hl.dsp.focus({ workspace = "e+1", }))
+osDsp("SHIFT + N", hl.dsp.window.move({ workspace = "e-1", }))
+osDsp("SHIFT + M", hl.dsp.window.move({ workspace = "e+1", }))
 
 -- Focus/open programs.
 local function focus(program, class)
-    local windows = hl.get_windows({ class = class })
+    local windows = hl.get_windows({ class = class, })
 
     if #windows == 0 then
         hl.exec_cmd(program)
@@ -143,7 +151,8 @@ local function focus(program, class)
     end
 
     if #windows == 1 then
-        hl.dispatch(hl.dsp.focus({ window = windows[1] }))
+        hl.dispatch(hl.dsp.focus({ window = windows[1], }))
+
         return
     end
 
@@ -151,8 +160,12 @@ local function focus(program, class)
     for i, window in ipairs(windows) do
         if active and window.address == active.address then
             local next = windows[i % #windows + 1]
-            hl.dispatch(hl.dsp.focus({ window = next }))
+
+            hl.dispatch(hl.dsp.focus({ window = next, }))
+
             return
+        else
+            hl.dispatch(hl.dsp.focus({ window = windows[1], }))
         end
     end
 end
@@ -166,6 +179,8 @@ local programShortcuts = {
 }
 
 for _, sh in ipairs(programShortcuts) do
-    hl.bind(mainMod .. " + SHIFT + " .. sh[1], hl.dsp.exec_cmd(sh[2]))
-    hl.bind(mainMod .. " + " .. sh[1], function() focus(sh[2], #sh == 3 and sh[3] or sh[2]) end)
+    osExec("SHIFT + " .. sh[1], sh[2])
+    osDsp(sh[1], function ()
+        focus(sh[2], #sh == 3 and sh[3] or sh[2])
+    end)
 end
