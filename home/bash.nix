@@ -26,7 +26,7 @@ _:
             dc = "cd ..";
 
             pwease = "sudo ";
-            kys = "shutdown now";
+            kys = "hyprshutdown -t 'Shutting down...' -p 'shutdown now'";
 
             dnr = "dotnet run";
             dnb = "dotnet build";

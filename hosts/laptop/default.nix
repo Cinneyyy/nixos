@@ -10,4 +10,9 @@ _:
     services.keyd.keyboards.default.settings.main = {
         sysrq = "102nd";
     };
+
+    services.logind.settings.Login = {
+        HandleLidSwitch = "suspend";
+        HandleLidSwitchExternalPower = "suspend";
+    };
 }
