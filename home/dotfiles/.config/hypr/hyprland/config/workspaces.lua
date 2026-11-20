@@ -85,7 +85,7 @@ hl.window_rule({
 
 hl.window_rule({
     match = {
-        class = "steam_app_[0-9]+|minecraft",
+        class = ".*(steam_app_[0-9]+|minecraft).*",
     },
     content = "game",
     workspace = "1",
