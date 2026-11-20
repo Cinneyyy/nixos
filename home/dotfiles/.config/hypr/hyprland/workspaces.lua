@@ -75,13 +75,6 @@ hl.window_rule({
     no_initial_focus = true
 })
 
-hl.window_rule({
-    match = {
-        title = "Steam Settings",
-    },
-    float = true,
-    center = true,
-})
 
 hl.window_rule({
     match = {

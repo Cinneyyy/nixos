@@ -1,3 +1,5 @@
+local hl = hl
+
 hl.config({
     animations = {
         enabled = true,
