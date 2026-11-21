@@ -21,7 +21,6 @@ _:
 
             nv = "nvim .";
             bashh = "nvim ~/.bash_history";
-            cloc = "cloc .";
             tr = "trash";
             dc = "cd ..";
 
@@ -31,7 +30,7 @@ _:
             dnr = "dotnet run";
             dnb = "dotnet build";
 
-            ":3" = "cvlc ~/.config/quickshell/sounds/cats/$(($RANDOM%8)).mp3 --gain 0.33 --play-and-exit &> /dev/null & disown";
+            ":3" = "sh -c 'cvlc ~/.config/quickshell/sounds/cats/$(($RANDOM%8)).mp3 --gain 0.33 --play-and-exit &> /dev/null & disown'";
         };
         bashrcExtra = ''
             ffmeta() {
