@@ -10,7 +10,7 @@ hl.on("hyprland.start", function ()
 
         "signal-desktop",
         "whatsapp-electron",
-        "cinny-cinneyy:colin.monster",
+        "cinny0",
 
         "bitwarden",
     }

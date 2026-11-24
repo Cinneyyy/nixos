@@ -1,8 +1,8 @@
 { pkgs, ...}:
 let
-    create-instance = i:
-        pkgs.writeShellScriptBin "cinny-${i}" ''
-            base="$HOME/.local/share/cinny-${i}"
+    create-instance = name:
+        pkgs.writeShellScriptBin name ''
+            base="$HOME/.local/share/${name}"
             mkdir -p "$base"/{config,data,cache}
 
             export XDG_CONFIG_HOME="$base/config"
@@ -13,10 +13,9 @@ let
             '';
 in
 {
-    home.packages = with pkgs; [
-        cinny-desktop
-        (create-instance "kit.edu")
-        (create-instance "cinneyy:colin.monster")
-        (create-instance "support:colin.monster")
+    home.packages = [
+        (create-instance "cinny0")
+        (create-instance "cinny1")
+        (create-instance "cinny2")
     ];
 }
