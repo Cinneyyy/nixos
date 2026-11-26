@@ -53,6 +53,9 @@
         mindustry
         supertuxkart
         benhsm-minesweeper
+        (olympus.override {
+            celesteWrapper = "steam-run";
+        })
 
         # Dev
         gcc

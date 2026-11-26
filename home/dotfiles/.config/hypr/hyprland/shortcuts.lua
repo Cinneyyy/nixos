@@ -120,14 +120,15 @@ volumeEvt("SUPER + SHIFT + XF86AudioRaiseVolume", "SOURCE", "10%+")
 volumeEvt("SUPER + SHIFT + XF86AudioLowerVolume", "SOURCE", "10%-")
 
 -- Mute.
-osExec("XF86AudioMute", "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle", { locked = true, })
-osExec("XF86AudioMicMute", "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle", { locked = true, })
+osExec("XF86AudioMute", "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle", { locked = true, }, true)
+osExec("XF86AudioMute", "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle", { locked = true, }, false)
+osExec("XF86AudioMicMute", "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle", { locked = true, }, true)
 
 -- Media controls (required playerctl).
-osExec("XF86AudioNext", "playerctl next", { locked = true, })
-osExec("XF86AudioPrev", "playerctl previous", { locked = true, })
-osExec("XF86AudioPause", "playerctl play-pause", { locked = true, })
-osExec("XF86AudioPlay", "playerctl play-pause", { locked = true, })
+osExec("XF86AudioNext", "playerctl next", { locked = true, }, true)
+osExec("XF86AudioPrev", "playerctl previous", { locked = true, }, true)
+osExec("XF86AudioPause", "playerctl play-pause", { locked = true, }, true)
+osExec("XF86AudioPlay", "playerctl play-pause", { locked = true, }, true)
 
 -- Quickshell.
 osExec("Y", "qs ipc call notifications dismissAll")
