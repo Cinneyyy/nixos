@@ -2,10 +2,7 @@ _:
 
 {
     programs.nvf.settings.vim = {
-        # TODO: mini.stautsline.setupOpts?
-
         mini.statusline.enable = true;
-
         luaConfigRC.mini-statusline = ''
             require("mini.statusline").setup({
                 content = {

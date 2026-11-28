@@ -37,5 +37,6 @@ _:
         # Misc. shortcuts
         { mode = "n"; key = "<space>tm"; action = ":Markview<cr>"; }
         { mode = "n"; key = "<space>tt"; action = ":TypstPreview<cr>"; }
+        { mode = "n"; key = "<space>ts"; action = ":Screenkey<cr>"; }
     ];
 }

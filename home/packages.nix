@@ -25,6 +25,7 @@
         sl
         cowsay
         usbutils
+        wget
 
         # Chat
         discord

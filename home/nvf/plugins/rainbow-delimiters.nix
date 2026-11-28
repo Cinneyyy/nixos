@@ -1,12 +1,9 @@
 { pkgs, ... }:
 
 {
-    programs.nvf.settings.vim = {
-        startPlugins = with pkgs.vimPlugins; [
-            rainbow-delimiters-nvim
-        ];
-
-        luaConfigRC.rainbow-delimiters = ''
+    programs.nvf.settings.vim.extraPlugins.rainbow-delimiters = {
+        package = pkgs.vimPlugins.rainbow-delimiters-nvim;
+        setup = ''
             require("rainbow-delimiters.setup").setup {
                 strategy = {
                     [""] = "rainbow-delimiters.strategy.global",

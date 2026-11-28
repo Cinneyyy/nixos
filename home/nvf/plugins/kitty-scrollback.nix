@@ -1,12 +1,9 @@
 { pkgs, ... }:
 
 {
-    programs.nvf.settings.vim = {
-        startPlugins = with pkgs.vimPlugins; [
-            kitty-scrollback-nvim
-        ];
-
-        luaConfigRC.kitty-scrollback = ''
+    programs.nvf.settings.vim.extraPlugins.kitty-scrollback = {
+        package = pkgs.vimPlugins.kitty-scrollback-nvim;
+        setup = ''
             require("kitty-scrollback").setup()
         '';
     };

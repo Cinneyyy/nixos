@@ -1,15 +1,10 @@
 { pkgs, ... }:
 
 {
-    programs.nvf = {
-        settings.vim = {
-            startPlugins = with pkgs.vimPlugins; [
-                indent-blankline-nvim
-            ];
-
-            luaConfigRC.indent-blankline = ''
-                require("ibl").setup()
-            '';
-        };
+    programs.nvf.settings.vim.extraPlugins.indent-blankline = {
+        package = pkgs.vimPlugins.indent-blankline-nvim;
+        setup = ''
+            require("ibl").setup()
+        '';
     };
 }

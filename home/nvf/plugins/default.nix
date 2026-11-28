@@ -7,5 +7,6 @@ _:
         ./mini-statusline.nix
         ./rainbow-delimiters.nix
         ./telescope.nix
+        ./screenkey.nix
     ];
 }
